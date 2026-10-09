@@ -1,15 +1,14 @@
-# Learning desk
+# AI learning directory
 
-Private reading guides. Not Dune.
+This is a database of lessons made from links you send. Instagram reels, YouTube videos, and pages get checked, then filed into a place you can read later. Not Dune.
 
-Open `study-guide.html` for the current lesson.
+## Where a link goes
 
-## How a new reel gets added
+- Inbox (`inbox.md`): the raw link and the date. Nothing is taught from here.
+- Guide (`study-guide.html`): the reading section. What it is, what to copy, what was not shown.
+- Skill: only if the link contains a repeatable job. Most links never become a skill.
+- Limits: locked videos, unpaid classrooms, and claims that were not on the page.
 
-Send the reel link in chat. It is logged in `inbox.md`, then a new section is added to the guide only after the public caption or page is actually checked.
+Sending a link does not mean every frame was watched. If a reel is behind a login, the entry says locked. Tools are not invented. Paid courses are not scraped.
 
-Rules:
-- One reel, one section.
-- If the video is locked, say so. Do not invent the tools.
-- Do not scrape paid classrooms.
-- Do not mix this repo with Dune Sports.
+Send the next link in chat. It gets a row, then a section after it is checked.
