@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dune Learning — Camofox</title>
+<style>
+:root { --ink:#1a1814; --muted:#6b6560; --line:#e4dfd8; --bg:#f6f3ee; --card:#fffdf9; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:16px; }
+h1 { font:600 1.35rem/1.2 -apple-system,sans-serif; margin:0 0 6px; }
+main { max-width:740px; margin:0 auto; padding:14px 14px 72px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:14px 0; }
+h2 { font:600 1.12rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
+p, li { margin:0 0 8px; }
+.muted { color:var(--muted); font:13px/1.4 -apple-system,sans-serif; }
+</style>
+</head>
+<body>
+<header>
+<p class="muted">Dune Learning · Camofox · public project facts · October 9, 2026</p>
+<h1>Camofox, the learning guide</h1>
+<p>What it is, what the repo claims, and how it does or does not fit the desk. Evasion settings are not in this lesson.</p>
+</header>
+<main>
+<article>
+<h2>What it is</h2>
+<p>Camofox is a browser an AI agent can drive when there is no window on screen. The project is camofox-browser, owner jo-inc, mostly JavaScript, MIT license, about 11,500 stars. The description says it is a stealth headless browser for agents, a stand-in for Puppeteer or Playwright, aimed at pages that block bots.</p>
+<p>Headless means the browser runs without a visible window. The agent asks for a page. The browser loads it. The agent gets text back. A normal browser is for a person. This one is for a program.</p>
+</article>
+<article>
+<h2>The piece underneath</h2>
+<p>The README names Camoufox as the engine. Camoufox is a Firefox fork. The README says the anti-detection work sits in that engine, at a low level, so a site’s bot check is less likely to see a script. Camofox is the server and the API wrapped around that browser. You talk to Camofox. Camofox talks to Camoufox.</p>
+<p>It exposes a REST API. The README points local docs at port 9377, an OpenAPI file and a docs page, after it is running. It also names an OpenClaw plugin, Docker, and host notes for Windows, Fly.io, and Railway. Those are deploy shapes. They are not a reason to deploy it.</p>
+</article>
+<article>
+<h2>What the README says it can do</h2>
+<ul>
+<li>Open a tab and return page text, including an accessibility snapshot, so the agent spends fewer tokens than a screenshot pile.</li>
+<li>Keep a session: cookies and storage isolated per user, so a second run can stay logged in.</li>
+<li>Send traffic through a proxy, with a geo setting.</li>
+<li>Pull a YouTube transcript if yt-dlp is installed.</li>
+<li>Search macros, structured logs, and a config file for the browser.</li>
+</ul>
+<p>The README also has a security note: no embedded secrets, access control on the server, code isolation. A crypto-scam warning is in the credits. Treat random forks as untrusted.</p>
+</article>
+<article>
+<h2>Why the reel listed it</h2>
+<p>The techskills carousel grouped it with five other free repos and said the money is in packaging them as a service. Camofox was the “browse the web” item. The pitch is: an agent that can open pages a normal bot cannot. That is the product they are selling. It is not a report writer.</p>
+</article>
+<article>
+<h2>How this relates to your desk</h2>
+<p>Your loop is a note file, a local model, a draft file, and your signature. Camofox does not do that job. A public page can be read with a normal fetch. A client incident note should not be sent through a third-party browser at all.</p>
+<p>A disguised browser is for getting past a wall the site put up. Using that on a site you do not operate, or to collect data the site told bots not to take, is outside this desk. This lesson does not include the install, the fingerprint config, or the bypass steps.</p>
+</article>
+<article>
+<h2>What to use instead</h2>
+<p>For a public YouTube lesson, use the page and the transcript the creator already published. For a client report, use the officer’s note only. For the stream overlay, use a page you host and a file you approve. None of those need Camofox.</p>
+</article>
+</main>
+</body>
+</html>
