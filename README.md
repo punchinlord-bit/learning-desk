@@ -8,8 +8,6 @@ Repo: https://github.com/punchinlord-bit/learning-desk
 
 A link is logged first. If the video is locked, the entry says locked. Tools are not invented. Paid classrooms are not scraped.
 
-Live center is `center_live_1009f.html`. `index.html` and `course.html` redirect there. `center_live_1009e.html` was not overwritten, so an old iPhone cache of 1009e can still open.
+Live center is `center_live_1009f.html`. Same seven lessons as 1009e. Research is merged into those lessons. `index.html` and `course.html` redirect there. `center_live_1009e.html` was not overwritten.
 
-`gemini-handoff.html` is the full Gemini summary file: terminal, Ollama, eight jobs, security reels, 15-minute gates, 25-minute filter. Claims that were not measured stay marked.
-
-Fact or Hype reel: https://www.instagram.com/reel/Dcd3eY1iOMA/ — caption does not name a repo. Matched repo is https://github.com/abi/screenshot-to-code from the tagged account’s short. Filed on `reels.html#hype`.
+Fact or Hype reel is on the defense lesson and on `reels.html#hype`. Caption does not name a repo. Matched repo is https://github.com/abi/screenshot-to-code from the tagged account's short.

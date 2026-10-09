@@ -2,10 +2,9 @@
 
 | Date | Link | Status | Section |
 |---|---|---|---|
-| 2026-10-09 | https://www.instagram.com/reel/Dcd3eY1iOMA/ | Caption does not name a repo. Comments describe screenshot or URL clone. Matched public repo: https://github.com/abi/screenshot-to-code from the tagged account’s own short, not from the reel caption. Video frames not read. | Reel |
-| 2026-10-09 | Gemini handoff pasted into the desk | Filed complete at gemini-handoff.html. Claims left unmeasured. Kevin tour link fixed (handoff was missing v=). | Course |
+| 2026-10-09 | https://www.instagram.com/reel/Dcd3eY1iOMA/ | Caption does not name a repo. Matched https://github.com/abi/screenshot-to-code from the tagged account's short. Merged into the defense lesson and reels.html. | Reel |
+| 2026-10-09 | Research notes for the seven lessons | Merged into center_live_1009f.html lessons. Not a separate page. | Course |
 | 2026-10-09 | https://www.instagram.com/reel/DdfagY3tNXe/ | Caption only. Tools unknown. | Reel |
 | 2026-10-09 | Kevin Unk Ai channel | Long videos checked. Shorts not dumped. | Kevin |
 | 2026-10-09 | https://www.youtube.com/@fluxtheaiexpert | Two videos opened. Full channel not dumped. | Flux |
-| 2026-10-09 | Gemini handoff + ChatGPT emblem https://chatgpt.com/s/m_6ac8a65d793c8191bbf928e489be3fe9 | Filed as course_v20261009_shane.html. course.html left in place. | Course |
-| 2026-10-09 | Missing plain rules + 25-minute handoff | Filed in course_v20261009c_shane.html and min25.html. btc15.html and course.html left alone. | Course |
+| 2026-10-09 | Earlier course files | course_v20261009_shane.html and course_v20261009c_shane.html left in place. | Course |
