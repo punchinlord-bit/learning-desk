@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dune Learning — channel lessons</title>
+<style>
+:root { --ink:#1a1814; --muted:#6b6560; --line:#e4dfd8; --bg:#f6f3ee; --card:#fffdf9; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:16px; position:sticky; top:0; z-index:2; }
+h1 { font:600 1.3rem/1.2 -apple-system,sans-serif; margin:0 0 6px; }
+nav { display:flex; gap:8px; overflow:auto; padding-top:8px; }
+nav a { font:13px/1 -apple-system,sans-serif; text-decoration:none; color:var(--ink); border:1px solid var(--line); background:#f3efe8; border-radius:999px; padding:7px 10px; white-space:nowrap; }
+main { max-width:760px; margin:0 auto; padding:12px 14px 70px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:14px 0; }
+h2 { font:600 1.15rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1rem/1.3 -apple-system,sans-serif; margin:14px 0 6px; }
+p, li { margin:0 0 8px; }
+.muted { color:var(--muted); font:13px/1.4 -apple-system,sans-serif; }
+a { color:#7a4e24; }
+</style>
+</head>
+<body>
+<header>
+<p class="muted">Dune Learning · one full lesson per channel · October 9, 2026</p>
+<h1>Channel lessons</h1>
+<nav>
+<a href="#chuck">NetworkChuck</a>
+<a href="#cole">Cole Medin</a>
+<a href="#indy">IndyDevDan</a>
+<a href="#mark">Mark</a>
+<a href="#king">AICodeKing</a>
+<a href="#tim">Tech With Tim</a>
+<a href="#anthropic">Anthropic</a>
+<a href="#flux">Flux</a>
+<a href="#kevin">Kevin</a>
+</nav>
+</header>
+<main>
+<article id="chuck">
+<h2>NetworkChuck</h2>
+<p class="muted">Main video: You've Been Using AI the Hard Way. 2,248,668 views. About 34 minutes. <a href="https://www.youtube.com/watch?v=MsQACpcuTkU">source</a>. Written guide: <a href="https://github.com/theNetworkChuck/ai-in-the-terminal">ai-in-the-terminal</a>. Lesson from the public transcript.</p>
+<h3>What the video is</h3>
+<p>He moves the model out of the browser and into the terminal, because the terminal can see your folders. The browser cannot, unless you paste. Five segments.</p>
+<h3>Segment 1, Gemini, from 1:09</h3>
+<p>Install the Gemini command-line tool. Make a folder. Start Gemini. Log in with Google. Ask it something small. It can write a file in that folder. Type slash and it can write a context file, gemini.md, so the next session already knows the project. He shows it reading notes that are already files, including an Obsidian vault. Free tier. This is the first tool, not the only tool.</p>
+<h3>Segment 2, Claude Code, from 8:43</h3>
+<p>Install, then run claude. It needs Claude Pro, about $20 a month in his telling. A context file, claude.md, holds the standing order. Slash context shows how full the window is. Slash agents makes a worker with its own fresh window, so the main chat does not bloat. He makes a homelab agent and a critic agent. Headless mode, claude -p, is for a script. The skip-permissions flag exists. Do not use it on a folder that holds client notes.</p>
+<h3>Segment 3, three tools, one folder, from 17:59</h3>
+<p>Gemini, Claude Code, and Codex open in the same directory. Each has its own context file. They do not share a chat. They share the folder. That is the handoff.</p>
+<h3>Segment 4, from 20:31</h3>
+<p>A closer agent writes a summary and commits. A critic agent scores the work. Git is the history. Treat the notes like code.</p>
+<h3>Segment 5, OpenCode, from 26:29</h3>
+<p>OpenCode is the open tool. It can point at a local model, he names Llama, or at a Claude login. This is the door for Qwen on your ROG box. Config lives in a json file.</p>
+<h3>What to copy</h3>
+<p>One folder. One context file. Gemini or OpenCode first, because they can be free or local. Claude Code when the job needs agents. You read the file before it is trusted.</p>
+</article>
+<article id="cole">
+<h2>Cole Medin</h2>
+<p class="muted">Channel about 227,000 subscribers. Start video: Learn 90% of Building AI Agents in 30 Minutes. 30,200 views. 29 minutes. <a href="https://www.youtube.com/watch?v=i5kwX7jeWL8">source</a>. Chapters from the public page. Higher-view companion: This is Hands Down the BEST Way to Build AI Agents, 173,000 views.</p>
+<h3>The four parts he names</h3>
+<p>From the chapters: pick the model, write the system prompt, give tools, then watch the run. He says most people fail by adding pieces before those four work.</p>
+<h3>Order on the page</h3>
+<ol>
+<li>Four components, from 1:38.</li>
+<li>First three steps, from 3:06.</li>
+<li>A basic agent built live, from 4:09.</li>
+<li>Choosing the model, from 9:17. OpenRouter is named, so the model can be swapped.</li>
+<li>System prompt, from 10:34. This is the skill file.</li>
+<li>Tools, from 12:20. A tool is a permission, not a personality.</li>
+<li>Security, from 14:26. Guardrails, then a Snyk MCP server for code risk.</li>
+<li>Context and memory, from 19:45. Mem0 is named for long memory.</li>
+<li>Tracing with Langfuse, from 23:53.</li>
+<li>Docker, from 26:28, only after the agent works once.</li>
+</ol>
+<h3>What to copy</h3>
+<p>Prompt, then one tool, then a trace of what it did. Skip Docker, Mem0, and a second model until the incident draft is boring. His workshop repo was named in earlier research as coleam00/ai-transformation-workshop. Read the files before you quote a method as his.</p>
+</article>
+<article id="indy">
+<h2>IndyDevDan</h2>
+<p class="muted">Cited as the principle-first Claude Code teacher. Channel: <a href="https://www.youtube.com/@indydevdan">@indydevdan</a>. Individual timestamps were not opened this pass, so this lesson stays on the methods secondary pages attributed to him.</p>
+<h3>What he is for</h3>
+<p>Not hardware. Not a model pick. He teaches how the harness is programmed: a CLAUDE.md standing order, skills as reusable commands, subagents, and git worktrees so two agents do not edit the same files.</p>
+<h3>The rule</h3>
+<p>One skill, one job. The incident skill is a standing order: use only the note, write missing if a fact is absent, never mark the report approved. A worktree is a second copy of the folder so a second agent cannot overwrite the note.</p>
+<h3>What not to assume</h3>
+<p>A feature named in a roundup is not proof it is in a specific video. Open the video before you treat a command as his.</p>
+</article>
+<article id="mark">
+<h2>Mark Gadala-Maria</h2>
+<p class="muted">Small channel, about 13,000 subscribers. Useful video: How To Build Uncensored AI Agents On ANY Computer. <a href="https://www.youtube.com/watch?v=gdC8qm9tyVc">source</a>. Written workflows on yourunai.com. Transcript fetch failed this pass. Lesson from the public description and chapters.</p>
+<h3>What the listing says</h3>
+<p>Ollama, then Hermes Desktop. A Qwen around 27B for a machine with 24 GB of video memory, and a 2B model for a 4 GB card. He gives Ollama run lines for a base Qwen and an uncensored quant. Hermes is started from Ollama with a launch command. Chapters: setup, Hermes Desktop, then the smaller model.</p>
+<h3>What to copy</h3>
+<p>Match the file to the card. An 8 GB 2080 is the small-model case until nvidia-smi says otherwise. Uncensored is for internal drafts. Client reports use the base instruct model. A comment on the page says the 27B line is not realistic on a weak PC. Believe the comment until you measure.</p>
+</article>
+<article id="king">
+<h2>AICodeKing</h2>
+<p class="muted">About 132,000 subscribers. Use this channel to pick a GGUF, not to design the desk. Example listing: SuperGemma-4 26B uncensored with Hermes, OpenClaw, and OpenCode.</p>
+<h3>What he is for</h3>
+<p>Model cards, quant names, and which harness can point at a local server. He names MLX for Apple silicon and GGUF for other machines. A 26B file wants about 24 GB unified memory in his telling. That is not your 2080.</p>
+<h3>What to copy</h3>
+<p>Read the model card. Check the license. Pull a small quant first. Do not take a benchmark from the title as your tokens per second.</p>
+</article>
+<article id="tim">
+<h2>Tech With Tim</h2>
+<p class="muted">Two high-view lessons. Claude Code for beginners, about 1.7 million views, <a href="https://www.youtube.com/watch?v=ntDIxaeo3Wg">source</a>. Ollama in 15 minutes, about 1.2 million views, <a href="https://www.youtube.com/watch?v=UtSSMs6ObqY">source</a>.</p>
+<h3>Ollama lesson</h3>
+<p>Install the runtime. Pull a small model. Run one prompt. Write down the tag and the context length. Then try a larger file. Q4 is smaller and fuzzier. Q6 is cleaner and may spill off an 8 GB card into system RAM. Spill is allowed. Unmeasured speed is not a result.</p>
+<h3>Claude Code lesson</h3>
+<p>The tool reads the folder you opened. A CLAUDE.md file is the standing order. Subagents are extra workers with their own window. For this desk the standing order is the incident skill.</p>
+</article>
+<article id="anthropic">
+<h2>Anthropic</h2>
+<p class="muted">Claude Code best practices, about 576,000 views, <a href="https://www.youtube.com/watch?v=gv0WHhKelSE">source</a>. Official, so use it for the harness only.</p>
+<h3>The lesson</h3>
+<p>Plan before it edits. Keep the context file short. Give it one folder. Review the diff. Do not grant the whole disk. Their video will not teach an uncensored local model. Pair it with the Ollama lesson for the model file.</p>
+</article>
+<article id="flux">
+<h2>Flux | AI Expert</h2>
+<p class="muted">About 1,800 subscribers. Two transcripts were read. <a href="https://www.youtube.com/watch?v=TSl0RZK5Slo">One-person stack</a>, about 8,600 views. <a href="https://www.youtube.com/watch?v=UQHjMIzM-00">Drop folder</a>, about 2,200 views.</p>
+<h3>One-person stack</h3>
+<p>Claude Code as a VS Code extension. Qwen through Ollama for cheap sorting. DeepSeek, about $2 a month in his telling, for the middle pass. Opus for the decision. A loop every two minutes. Netlify for a mock page. A Gmail app password for mail. Windows Task Scheduler for the morning run. The thousand-task line and the 99 percent token cut were said, not shown.</p>
+<h3>Drop folder</h3>
+<p>Inbox, posting, published, failed. A watcher moves the file. Instagram needs a Meta business app, a tester invite, and a publish token. YouTube needs the Data API and a desktop OAuth client. TikTok, X, and LinkedIn are in the title and not in the setup. Assets are on his store, not a public repo.</p>
+<h3>What to copy</h3>
+<p>Cheap model versus careful model. Four folders. You look at the first output. Do not copy the volume claims.</p>
+</article>
+<article id="kevin">
+<h2>Kevin Unk Ai</h2>
+<p class="muted">About 657 subscribers. Low views. Kept because the transcripts name the stack. <a href="https://www.youtube.com/watch?v=xB4Vwwj0KQo">81-minute tour</a>. <a href="https://www.youtube.com/watch?v=puPAEyNfdhs">Eight jobs</a>.</p>
+<h3>The tour</h3>
+<p>SimplePod rental, SSH, Claude Code to harden the box, Ollama for the model, Hermes as the night process, a dashboard that reads files. He says Q6 or cleaner for tools, Q4 for chat. He scores the machine about 8 out of 10 and the offer about 6.5. The hourly card price on screen is his example, not your bill.</p>
+<h3>The eight jobs</h3>
+<p>Revenue, content, video, offer, social routing, lead follow-up, reliability, memory. Money loop first. Each writes a file. He says not to add a ninth. Start with one job.</p>
+</article>
+</main>
+</body>
+</html>
