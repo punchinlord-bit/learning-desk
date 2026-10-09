@@ -1,33 +1,123 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dune Learning</title>
 <style>
-:root{--bg:#12100e;--panel:#1c1814;--ink:#f6f1e8;--muted:#cbbba8;--line:#3c342c;--accent:#e2a15c;--green:#8eae86}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Georgia,serif}
-.top{padding:14px 14px 8px;background:#16130f;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:2}
-.mark{font:600 11px/1 -apple-system,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
-h1{font:600 1.25rem/1.2 -apple-system,sans-serif;margin:0 0 8px}
-.tabs{display:flex;gap:6px;overflow:auto;padding-bottom:8px}
-.tabs button{background:#241f1a;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font:13px/1 -apple-system,sans-serif;white-space:nowrap}
-.tabs button.on{background:var(--accent);color:#1a120c;border-color:var(--accent)}
-main{max-width:880px;margin:0 auto;padding:12px}
-article{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
-.n{color:var(--green);font:12px/1 -apple-system,sans-serif}
-h2{font:600 1.02rem/1.3 -apple-system,sans-serif;margin:4px 0 6px}
-p{margin:0;color:var(--muted)}
-</style></head><body>
-<div class="top"><p class="mark">Dune Learning</p><h1>One lesson per video</h1><div class="tabs" id="tabs"></div></div>
+:root { --bg:#f3efe6; --ink:#1c1612; --muted:#5e564e; --line:#ddd4c6; --card:#fffdf8; --accent:#8a4b24; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.6 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:18px 16px 10px; position:sticky; top:0; }
+.mark { font:600 12px/1 -apple-system,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 6px; }
+h1 { font:600 1.4rem/1.2 -apple-system,sans-serif; margin:0 0 8px; }
+nav { display:flex; gap:8px; overflow:auto; padding-bottom:8px; }
+nav button { border:1px solid var(--line); background:#f7f1e6; border-radius:999px; padding:8px 12px; font:14px/1.2 -apple-system,sans-serif; color:var(--ink); white-space:nowrap; }
+nav button.on { background:var(--ink); color:#fff; }
+main { max-width:740px; margin:0 auto; padding:18px 16px 80px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; }
+h2 { font:600 1.35rem/1.25 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1.05rem/1.3 -apple-system,sans-serif; margin:18px 0 6px; }
+p, li { margin:0 0 10px; }
+.meta { color:var(--muted); font:14px/1.4 -apple-system,sans-serif; }
+[hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<header>
+<p class="mark">Dune Learning</p>
+<h1>Ten full lessons</h1>
+<nav id="nav"></nav>
+</header>
 <main id="main"></main>
 <script>
-const sources = {"NetworkChuck": [["You've been using AI the hard way", "2.2 million views, 34 minutes. The browser hides the context window. The terminal can see a folder. Start here. Make one folder, let Gemini write a file, then stop."], ["Host all your AI locally", "About 2.7 million views. Ollama holds the model. Open WebUI is the window. Stop before a public domain. Incident notes stay on the machine."], ["Run your own AI, private", "About 2.6 million views. Same lesson, shorter. A model is a file. Load it. Do not add the two 8 GB cards in your head."], ["Claude Code on your phone", "About 278,000 views. A remote for an agent already running. Useless until the folder and the skill exist."]], "Cole Medin": [["90 percent of agents in 30 minutes", "30,200 views. Four parts: model, prompt, one tool, a trace. Your tool is read this file, write that file."], ["Best way to build agents", "173,000 views. The warning cut. People fail by adding pieces. Keep the agent small."], ["Complete agent blueprint", "77,000 views. His map from empty folder to a working agent. Use it as a map, not a second product."], ["Pydantic plus DeepSeek", "80,000 views. A typed output. Useful later so the draft cannot skip a heading. Not the first run."], ["28 minutes that change the build", "54,000 views. Another pass on the same four parts. Watch after the 30-minute one if the first did not stick."], ["Three labs' agent guides in 18 minutes", "39,000 views. Official guides, compressed. Plan, tool permission, human check."], ["Top 20 lessons from hundreds of agents", "17,000 views. A list of scars. Take the ones that match the note-and-draft loop. Leave the rest."]], "Tech With Tim": [["Claude Code for beginners", "About 1.7 million views, 36 minutes. Install. Open one folder. Context file is the standing order."], ["Ollama in 15 minutes", "About 1.2 million views. Pull a small model. One prompt. Write down the tag. Then the fake note."]], "Anthropic": [["Claude Code best practices", "About 576,000 views, 26 minutes. Plan, short context file, one folder, you review the diff. They do not pick your local model."]], "Flux": [["500 posts a day", "About 2,200 views, 14 minutes. Transcript read. Inbox, posting, published, failed. 500 is a claim. Watch the first file."], ["One-person stack", "About 8,600 views, 19 minutes. Transcript read. Qwen sorts, DeepSeek middle, Opus decides. Token-cut number was not shown."], ["$50k website", "About 8,000 views, 21 minutes. Spec before pages. The price is the title. Assets sit on a Drive file."], ["Coca-Cola edit", "7 minutes, 77 views. A commercial made cheap. Editing craft. Not the report loop."], ["Liquid glass preset", "12 minutes, about 4,300 views. DaVinci look. Later, for a title card. Not a model."], ["3D client edit", "9 minutes. DaVinci. Listed only. Not an agent lesson."], ["Eye animation", "11 minutes. Retention edit in Resolve. Listed only."], ["Soft color grade", "7 minutes. Color. Listed only."], ["Split transition", "10 minutes. Fusion transition. Listed only."], ["Apple-style 3D", "18 minutes. Motion in Resolve. Listed only."], ["Left After Effects", "21 minutes. Resolve versus After Effects. Listed only."]], "Kevin Unk": [["Five projects, one system", "81 minutes. Transcript read. Rented card, SSH, Claude Code still paid, Ollama, Hermes, a dashboard that reads files."], ["Eight jobs", "46 minutes. Transcript read. Eight files. Do not add a ninth. Your eight is one draft."], ["Omarchy", "8 minutes, 715 views. A Linux desktop for agents. Skip until the note loop works."], ["Jarvis phone app", "11 minutes, 37 views. A remote for Hermes already running. Same rule as Chuck's phone video."], ["GoHighLevel sales cut", "7 minutes. Agents on 74 videos, in the title. Money claims are titles. The pipeline shape is the lesson."], ["Editing and posting engine", "23 minutes. Claude Code cuts and posts. Copy the folder. Do not copy a volume claim."], ["Business operating system", "12 minutes. Short map of the same stack as the 81-minute tour."], ["Mission control", "26 minutes. Dashboard over business data. Listing does not prove the data was live."], ["100 videos at once", "20 minutes. Remotion and Hyperframes. 100 is the title. A clip only after an approved draft."], ["Hermes for six hours", "31 minutes. Overnight run, in the title. No log on the page. A night agent still needs a job file."], ["One-prompt Jarvis short", "3 minutes. Comment bait. A spec file and a rented card. Not a build guide."], ["24-7 short", "75 seconds, about 1,100 views. Claude on a GPU pod, Hermes beside it. A trailer, not a lesson."]], "Mark Gadala": [["Uncensored agents on any computer", "Public description. Ollama, Hermes, a 27B for 24 GB, a 2B for 4 GB. Your card is 8 GB. Transcript was not fetched."]], "AICodeKing": [["SuperGemma with Hermes", "A 26B uncensored file paired with a harness. He says about 24 GB. Not your 2080. Read the card before a pull."]], "Saved reels": [["Shannon", "Caption named Shannon and Claude Code. The public project is Keygraph's tester: github.com/KeygraphHQ/shannon. A Claude Code wrapper is github.com/us/shannon-on-claude-code. Method: each phase writes a markdown deliverable, the next phase reads it. Copy that file handoff. Attack steps stay out. Only an app you own, or a client who asked in writing."], ["Uncensored reel", "No product name on the page. Method he is selling is a comment word for a DM link. Do not build on that. Your method is two local files in Ollama: base Qwen for the client draft, a looser quant for internal wording only."], ["Six repos", "techskills named the six. Keep Hyperframes only: github.com/heygen-com/hyperframes, HTML to a short video, after an approved draft. Claude Ads, Fincept, and Vibe-Trading are other businesses. Camofox, github.com/jo-inc/camofox-browser, is a stealth browser. Leave it."], ["Stadium page", "Method is a single index.html, Three.js for the 3D, GSAP for the camera, seats are generated not imported. Repo: github.com/thebuggeddev/football-stadium. Prices on screen are fake. Your use is flatter: a page with name, score, and note, filled from a file you approve, shown in OBS."], ["Claude mods", "nocode.joshua. Method he claims: describe the mod, Claude builds it. Three uses: sessions pass work, a dashboard inside the tool, easy jobs routed to a cheaper model. No repo on the reel. Your copy is the route only. Qwen writes the missing-list file. You write the draft."], ["Do not fill a blank", "Champ McCorkle. Method: stop trusting a model that sees a title and invents the page. He names Firecrawl, then says he moved to Context.dev. Your rule is stricter. No source line under the claim, the draft says missing."], ["Mimic", "alex.nex.tech pointed at littledivy/mimic, github.com/littledivy/mimic, about 2,500 stars. Method: it watches network calls from a session you already have and generates a Python client. That is a description, not a build step. Do not use it on an app you do not own."], ["Secrets", "deonnahodges. Method: keys were committed, so they leaked. Fix is an env file listed in .gitignore. Do not search GitHub for other people's keys. Your tokens never enter this repo."], ["Ruflo", "Kayvon's comment word was FLOW. The project that matches the 60-agent claim is ruvnet/ruflo, also called Claude Flow, github.com/ruvnet/ruflo. Method: an orchestrator assigns jobs and can route cheap work to a cheaper model. You do not install the swarm. One job file is the start."], ["26-minute app", "futurewalt.ai. No repo on the post. Method claimed: one person, Claude, a goal, a live build. The usable part is a written spec before any file is created."]]};
-const names = Object.keys(sources);
-const tabs = document.getElementById("tabs");
+const lessons = [
+["1. Terminal", `<h2>You have been using AI the hard way</h2>
+<p class="meta">NetworkChuck. 2,248,668 views. About 34 minutes. Five segments. Written from the public transcript, not a rewatch.</p>
+<p>This video is the install order for the whole desk. The mistake he is correcting is living in the browser. The browser hides how full the context window is, and it cannot see a folder unless you paste the folder in. The terminal can see the folder. Once the model can see the folder, the chat stops being the product. The file is the product.</p>
+<h3>Segment 1, from 1:09. Gemini</h3>
+<p>He starts with Gemini because it is free. Install the command. Make a folder, he uses a coffee project as the toy. Start Gemini. Log in with Google. Ask a small question. Then let it write a file in that folder. That write is the proof. If it cannot write a file, nothing else in the video matters.</p>
+<p>He then types a slash command and has it write gemini.md. That file is the memory. The next session reads it, so you do not paste the old chat. He also shows it reading notes that are already files, including an Obsidian vault. The vault is just a folder of text. That is the whole trick.</p>
+<h3>Segment 2, from 8:43. Claude Code</h3>
+<p>Claude Code is the one he uses when the job has workers. It needs Claude Pro, about $20 a month in his telling. Install, then run claude. It writes claude.md the same way Gemini wrote its file. Slash context shows how full the window is. The browser was hiding that number.</p>
+<p>Slash agents makes a worker with a fresh window. He makes a homelab agent and a critic. The fresh window is why the main chat does not fill up. He also shows a headless flag, claude -p, so a script can ask one question and quit. There is a skip-permissions flag. Do not use it on a folder that holds a client note.</p>
+<h3>Segment 3, from 17:59. Three tools, one folder</h3>
+<p>He opens Gemini, Claude Code, and Codex in the same directory. They do not share a chat. They share the files. Gemini for the long read, Claude for the script, Codex for a second pass. If you only remember one sentence from this segment, remember that.</p>
+<h3>Segment 4, from 20:31. The closer and the critic</h3>
+<p>A closer agent writes a summary and commits to git. A critic agent scores the work. He has one score a script 8.2 out of 10. Git is the history. The note and the draft stay as two files so you can see what changed.</p>
+<h3>Segment 5, from 26:29. OpenCode</h3>
+<p>OpenCode is the open tool. It can point at a local model, he names Llama, or at a Claude login. Config is a json file. This is the door for Qwen on the ROG box. You do not need all five segments on day one. Folder, one write, one context file. Then stop.</p>
+<h3>How you use the whole video</h3>
+<p>One folder. Context file says: read the note, write a second file, missing stays missing, you sign it. Gemini or OpenCode first. Claude Code after that file exists.</p>`],
+["2. Local host", `<h2>Host all your AI locally</h2>
+<p class="meta">NetworkChuck. About 2.7 million views. The private-stack video.</p>
+<p>The last lesson put the tool in the terminal. This one puts the model on your machine. Ollama is the program that holds the model file and answers on a local port. Open WebUI is a window in the browser that talks to that port. The chat looks normal. The model file never had to leave the box.</p>
+<p>He also shows how to put that window on a domain later, so you can reach it from a phone. That second step is the one you skip. A domain is a door. An incident note does not go through a door you do not control. Stop when the window works on the machine.</p>
+<h3>How you use it</h3>
+<p>Install Ollama. Pull a small model, not a 27B. Open the local window. Ask one harmless question. Write down the tag that answered. The two 2080s are 8 GB each. They are not one 16 GB pool. If the larger file does not fit, leave it.</p>`],
+["3. Private AI", `<h2>Run your own AI, but private</h2>
+<p class="meta">NetworkChuck. About 2.6 million views. Shorter frame of the same idea.</p>
+<p>A local model is a file plus a runtime. The runtime loads the file into the card's memory. The chat stays on the machine. Privacy here means the note is not pasted into a company chat. It does not mean the model is smart. A private wrong sentence is still wrong.</p>
+<p>He is selling the feeling of owning the stack. The useful part is smaller. The note file and the draft file live in a folder on the ROG box. The model may read the note. It may not invent a badge number that was not in the note.</p>`],
+["4. Claude Code", `<h2>Claude Code for beginners</h2>
+<p class="meta">Tech With Tim. About 1.7 million views. 36 minutes.</p>
+<p>This is the install film for the paid builder. Claude Code lives in the terminal or as a VS Code extension. You open a folder. It can read the files in that folder and write new ones. A CLAUDE.md file at the root is the standing order. Every new session reads it.</p>
+<p>He shows subagents, which are workers with their own window. That is the same idea Chuck showed. You do not make one. The standing order is enough: use only the note, write missing if a fact is absent, never mark the report approved.</p>
+<h3>How you use it</h3>
+<p>After Ollama has answered once, open Claude Code on the incident folder only. Ask it to draft from the note into a second file. Read the diff. If a fact is not in the note, the draft is wrong even if the sentence is smooth.</p>`],
+["5. Ollama", `<h2>Ollama in 15 minutes</h2>
+<p class="meta">Tech With Tim. About 1.2 million views.</p>
+<p>Ollama is the runtime. Install it. Pull a small model. Run one prompt. The answer proves the file loaded. Write down the tag and the context length. Context length is how much text the model will look at. A longer window uses more memory and can push a model off an 8 GB card into system RAM. RAM works. It is slower. An unmeasured slowdown is not a result.</p>
+<p>Q4 is the smaller, fuzzier copy of a model. Q6 is cleaner and heavier. A report wants the cleaner copy if it fits. A chat can live with Q4. Do not pull the 27B file until the small file has drafted one fake note.</p>`],
+["6. Official", `<h2>Claude Code best practices</h2>
+<p class="meta">Anthropic. About 576,000 views. 26 minutes. Harness only.</p>
+<p>This is the vendor's own lesson, so use it for behavior, not for a model pick. Plan before it edits files. Keep the context file short, because a long standing order gets skipped. Give it one folder, not the disk. Review the diff before you trust a change. Do not turn on auto-approve.</p>
+<p>They will not teach an uncensored local model. Pair this video with the Ollama lesson. Their rules still apply when the model is local: the human reads the draft, the tool does not release it.</p>`],
+["7. Agents", `<h2>Ninety percent of an agent in 30 minutes</h2>
+<p class="meta">Cole Medin. 30,200 views. 29 minutes. Chapters from the public page. Companion video at 173,000 views says the same thing louder.</p>
+<p>He says an agent is four parts. A model. A system prompt. One tool. A trace of what the run did. People fail by adding memory, Docker, and a second model before those four work.</p>
+<p>On the page the order is: build a basic agent live, pick the model, write the prompt, add a tool, then talk security, then memory, then a trace, then Docker. OpenRouter is how he swaps models. Guardrails and a Snyk check are the security segment. Mem0 is long memory. Langfuse is the trace. Docker is last.</p>
+<h3>How you use it</h3>
+<p>Prompt is the incident skill. Tool is read this file, write that file. Trace is the validator: headings present, second file, pending at the bottom. Skip Docker and Mem0.</p>`],
+["8. One person", `<h2>One-person stack in an hour</h2>
+<p class="meta">Flux. About 8,600 views. 19 minutes. Written from the transcript.</p>
+<p>He installs Claude Code as a VS Code extension. Then he splits work across three models so the expensive one is not doing the easy jobs. Qwen, local through Ollama, sorts and classifies. DeepSeek, about $2 a month for the key in his telling, does the middle reasoning. Claude Opus does the decision. A loop is described as waking every two minutes. That loop is why he says he could drop a Claude tier. The 99 percent token cut was said, not measured on screen.</p>
+<p>The second half is a business pipeline. Morning task pulls local businesses, checks that the email domain can receive mail, builds a mock page on Netlify, and sends it with a Gmail app password. Follow-ups are described at day 3, 7, and 10. Windows Task Scheduler starts the run. The thousand-task line and the $12,000 dental estimate were said, not shown.</p>
+<h3>How you use it</h3>
+<p>Copy the split. Local Qwen lists what is in the note and what is missing. You, or a stronger model later, write the sentences. Do not copy the cold-email volume.</p>`],
+["9. Drop folder", `<h2>The drop folder</h2>
+<p class="meta">Flux. About 2,200 views. 14 minutes. Written from the chapters and transcript.</p>
+<p>One video goes in a folder. A watcher sees the new file. Claude Code resizes it, writes a caption, and a timer posts it. The 500-posts line is the title. The transcript does not show a log of 500 posts.</p>
+<p>Folders he names: inbox, where you drop the file; posting, while it runs; published, after a post succeeds; failed, when it does not. A raw folder holds long videos that get cut. The timer example is a cron job at 3 p.m.</p>
+<p>Instagram goes through a Meta developer app, a business account, a tester invite, and a token with publish permission. YouTube goes through Google Cloud, the Data API, and a desktop OAuth client. He does not walk TikTok, X, or LinkedIn setup even though the title lists them. The files sit on his store, not a public repo.</p>
+<h3>How you use it</h3>
+<p>Four folders, only after the report loop works, and only for a clip made from an approved draft. You watch the first file move. No timer until you have read one full run. Tokens never go in a screenshot.</p>`],
+["10. Eight jobs", `<h2>Eight jobs on Hermes</h2>
+<p class="meta">Kevin Unk. 436 views. 46 minutes. Low views, kept because the transcript names the handoff. The 81-minute tour is the map of the same stack.</p>
+<p>Hermes is the runtime. Hermes Desktop is the window. He points it at Minimax M3 through OpenRouter, then asks it to propose eight jobs from his contacts and memory.</p>
+<p>The eight are revenue, content repurposing, video production, offer builder, social routing, lead follow-up, system reliability, and memory librarian. He splits them into a money loop and a support loop. The order he asks for is revenue, then content pack, then offer, then video, then routing, then follow-up. Each stage writes markdown or JSON. The next stage may only read that file. He runs it by hand, then talks about a cron schedule. He says not to add a ninth. He calls extra agents profile soup.</p>
+<p>Hyperframes is named as the tool that turns HTML into a short video. Telegram is a message door. The 81-minute tour, before this, is the machine: a rented card on SimplePod, SSH, Claude Code still needing a login, Ollama holding the model, Q6 or cleaner for tools, Q4 for chat. He scores the machine about 8 out of 10 and the offer lower.</p>
+<h3>How you use it</h3>
+<p>Ignore the group price and the shorts. Your eight is one. Note in. Draft out. You sign it. The dashboard, when it exists, only shows that file.</p>`]
+];
+const nav = document.getElementById("nav");
 const main = document.getElementById("main");
-function show(name){
-  tabs.querySelectorAll("button").forEach(b=>b.classList.toggle("on", b.dataset.n===name));
-  const items = sources[name];
-  main.innerHTML = items.map((it,i)=>'<article><p class="n">'+name+' · lesson '+(i+1)+' of '+items.length+'</p><h2>'+it[0]+'</h2><p>'+it[1]+'</p></article>').join("");
-}
-names.forEach(n=>{const b=document.createElement("button"); b.textContent=n+" ("+sources[n].length+")"; b.dataset.n=n; b.onclick=()=>show(n); tabs.appendChild(b);});
-show(names[0]);
-</script></body></html>
+lessons.forEach((item, i) => {
+  const b = document.createElement("button");
+  b.textContent = item[0];
+  if (i===0) b.className = "on";
+  b.onclick = () => {
+    nav.querySelectorAll("button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    main.querySelectorAll("article").forEach(a => a.hidden = a.dataset.i !== String(i));
+  };
+  nav.appendChild(b);
+  const a = document.createElement("article");
+  a.dataset.i = i;
+  a.hidden = i!==0;
+  a.innerHTML = item[1];
+  main.appendChild(a);
+});
+</script>
+</body>
+</html>
