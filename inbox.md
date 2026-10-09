@@ -2,6 +2,8 @@
 
 | Date | Link | Status | Section |
 |---|---|---|---|
+| 2026-10-09 | https://www.instagram.com/reel/Dcd3eY1iOMA/ | Caption does not name a repo. Comments describe screenshot or URL clone. Matched public repo: https://github.com/abi/screenshot-to-code from the tagged account’s own short, not from the reel caption. Video frames not read. | Reel |
+| 2026-10-09 | Gemini handoff pasted into the desk | Filed complete at gemini-handoff.html. Claims left unmeasured. Kevin tour link fixed (handoff was missing v=). | Course |
 | 2026-10-09 | https://www.instagram.com/reel/DdfagY3tNXe/ | Caption only. Tools unknown. | Reel |
 | 2026-10-09 | Kevin Unk Ai channel | Long videos checked. Shorts not dumped. | Kevin |
 | 2026-10-09 | https://www.youtube.com/@fluxtheaiexpert | Two videos opened. Full channel not dumped. | Flux |
