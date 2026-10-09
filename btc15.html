@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>15-minute Bitcoin desk</title>
+<style>
+:root { --bg:#f3eee6; --ink:#1c1612; --muted:#5e564e; --line:#e0d5c6; --card:#fffdf8; --accent:#8a4b24; }
+body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.65 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:14px; position:sticky; top:0; }
+.mark { font:600 12px/1 -apple-system,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 6px; }
+h1 { font:600 1.3rem/1.2 -apple-system,sans-serif; margin:0 0 8px; }
+nav { display:flex; gap:6px; overflow:auto; }
+nav button { border:1px solid var(--line); background:#f6f0e6; border-radius:999px; padding:8px 10px; font:13px/1.2 -apple-system,sans-serif; white-space:nowrap; }
+nav button.on { background:var(--ink); color:#fff; }
+main { max-width:740px; margin:0 auto; padding:16px 14px 80px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
+h2 { font:600 1.25rem/1.25 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1.02rem/1.3 -apple-system,sans-serif; margin:16px 0 6px; }
+p, li { margin:0 0 10px; }
+a { color:var(--accent); }
+.meta { color:var(--muted); font:14px/1.4 -apple-system,sans-serif; }
+[hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<header>
+<p class="mark">Dune Learning</p>
+<h1>15-minute Bitcoin</h1>
+<nav id="nav"></nav>
+</header>
+<main id="main"></main>
+<script>
+const lessons = [
+["Your model", `<h2>Where this sits on your desk</h2>
+<p class="meta">Your 15-minute Bitcoin page already predicts a window. These lessons are the gate in front of that prediction. None of these people published an audited 15-minute track record in the pages opened. They are teachers. A title that says 96 percent is a title.</p>
+<h3>The rule</h3>
+<p>The model may name a direction for the next 15 minutes. It does not get to fire on every candle. A trade exists only if the higher window agrees, the 15-minute candle has closed, and the risk is written down before the entry. If any of those three is missing, the output stays a note.</p>
+<h3>What to log</h3>
+<p>Time of the candle close. Model direction. Whether the weekly or daily risk was high or low. Whether price had just taken the prior 15-minute high or low. Whether it was back on the session average. Result after the window. You grade the log. You do not grade a feeling.</p>`],
+["Cowen", `<h2>Benjamin Cowen, the risk gate</h2>
+<p class="meta">Into the Cryptoverse. About a million subscribers. Cycle analyst, not a 15-minute scalper. His risk metric is a number from 0 to 1. Low means a less crowded buy. High means a crowded, speculative price. He says it is not a top or bottom caller. The formula is his. The public chart is the lesson.</p>
+<p><a href="https://www.youtube.com/@BenjaminCowen">Channel</a> · <a href="https://benjamincowen.com/">Site</a></p>
+<h3>Three uses</h3>
+<p>One. Do not let a 15-minute long fire when his public risk chart is in the high zone and the weekly trend is down. The model can still print up. You do not have to take it.</p>
+<p>Two. A low-risk zone is not a buy button. It is permission to look. The 15-minute setup still has to close.</p>
+<p>Three. Log the risk number next to every model call. After 30 windows you can see if your hits cluster in one zone. That is the improvement. Not a new indicator.</p>`],
+["VWAP", `<h2>Mukul Choudhary, the session average</h2>
+<p class="meta">CoinDCX. 16 minutes. October 2026. A 15-minute VWAP reclaim.</p>
+<p><a href="https://www.youtube.com/watch?v=dymjubYYr_g">Open the video</a></p>
+<h3>What VWAP is</h3>
+<p>VWAP is the average price weighted by how much coin traded there. Institutions use it as a fair line for the session. He anchors a fresh one at 5:30 a.m. India time, which is the daily reset. On your desk the reset is 00:00 UTC, the crypto day.</p>
+<h3>His setup</h3>
+<p>Price leaves the average, comes back, and closes back on the side of the trend. He wants a 20-period exponential average on the same side, and RSI back through 50. The trigger candle is an engulfing or a star. He talks about 1:2 to 1:4 as the target shape. He also says win rate and payoff fight each other. A high win rate with a tiny target can still lose after fees.</p>
+<h3>On your model</h3>
+<p>If the model says up, and the 15-minute candle has not closed back above the session VWAP, the call stays a note. Same for down. The average is the gate, not a second prediction.</p>`],
+["Breakout", `<h2>Adib Noorani, the closed break</h2>
+<p class="meta">CoinDCX. 28 minutes. October 2026. Written for altcoins. The rule ports to Bitcoin if you drop the altcoin scanner.</p>
+<p><a href="https://www.youtube.com/watch?v=xvCExiVaCeY">Open the video</a></p>
+<h3>What he waits for</h3>
+<p>He marks the prior swing high and the prior swing low on the 15-minute or 30-minute chart. A break is not a wick. The candle has to close beyond the level. He wants the trade in the direction of the broader Bitcoin move, and he wants enough volume that the book is not a toy. His pay target is 1:1, then a trail. That is conservative. It is also how a 15-minute model survives fees.</p>
+<h3>On your model</h3>
+<p>The model may say the next window is up. You still wait for the 15-minute close beyond the prior swing. A wick through the high is not a fill. Log the close, not the wick.</p>`],
+["Sweep", `<h2>Faiz, the sweep and the close</h2>
+<p class="meta">Faiz SMC. About 192,000 subscribers. 18 minutes. He says 15-minute only, not lower.</p>
+<p><a href="https://www.youtube.com/watch?v=PGK_wp_H_8U">Open the video</a></p>
+<h3>What a sweep is</h3>
+<p>A prior 15-minute low is where stops sit. Price trades through that low, then the same candle closes back above it and closes green. He wants that low to have been made the same day. The mirror is a high taken and a red close back under it. He says if the close does not happen, there is no trade.</p>
+<h3>On your model</h3>
+<p>This is the filter for a reversal call. If the model says up, and price has not taken a same-day low and closed back above it, you are buying the middle. Mids are where the 15-minute page will look clever and lose. Write sweep yes or no on the log.</p>`],
+["Structure", `<h2>The Secret Mindset, the higher window</h2>
+<p class="meta">Scalping playlist. The 1-minute and 5-minute films are the warning. The useful sentence is the higher chart decides, the lower chart only times.</p>
+<p><a href="https://www.youtube.com/playlist?list=PLXWi52aRZnNG3gx2Qa-Z0QlT_HueflWI6">Playlist</a></p>
+<h3>What he repeats</h3>
+<p>People lose at short timeframes because they trade the chop and chase a green candle. His fix is a higher chart for direction and a lower chart for the entry. For you the higher chart is the 1-hour or the session VWAP. The 15-minute model is the entry clock, not the boss.</p>
+<h3>On your model</h3>
+<p>If the 1-hour is down and the model says up, size is zero unless a same-day sweep has closed back up. Most windows should be no-trade. A model that fires every 15 minutes is a fee machine.</p>`],
+["Log", `<h2>The 30-window test</h2>
+<p>For the next 30 closed 15-minute windows, write one row. Candle time. Model call. Cowen-style risk zone if you looked. VWAP side. Sweep yes or no. Closed beyond the swing yes or no. Taken or skipped. Result in dollars after a pretend fee.</p>
+<p>You are not looking for a guru win rate. You are looking for which gate would have cut the losses. If the sweep gate removes the red rows and keeps the green ones, that gate stays. If it cuts both, it is not a filter. That is how the algorithm gets better. Not a new video.</p>`]
+];
+const nav = document.getElementById("nav");
+const main = document.getElementById("main");
+lessons.forEach((item, i) => {
+  const b = document.createElement("button");
+  b.textContent = item[0];
+  if (i===0) b.className = "on";
+  b.onclick = () => {
+    nav.querySelectorAll("button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    main.querySelectorAll("article").forEach(a => a.hidden = a.dataset.i !== String(i));
+  };
+  nav.appendChild(b);
+  const a = document.createElement("article");
+  a.dataset.i = i;
+  a.hidden = i!==0;
+  a.innerHTML = item[1];
+  main.appendChild(a);
+});
+</script>
+</body>
+</html>
