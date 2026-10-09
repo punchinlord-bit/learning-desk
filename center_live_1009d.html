@@ -81,7 +81,7 @@ function current(){ return pages[index]; }
 function loadTrack(){
   const p = current();
   audio.pause();
-  audio.src = p.audio + "?v=" + BUILD;
+  audio.src = "https://raw.githubusercontent.com/punchinlord-bit/learning-desk/main/" + p.audio + "?v=" + BUILD;
   audio.load();
   line.textContent = "Rex track ready · " + p.title;
   playBtn.classList.remove("on");
