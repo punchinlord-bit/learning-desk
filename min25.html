@@ -4,90 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Dune Learning · Course v20261009c</title>
+<title>Dune Learning · 25-minute section</title>
 <style>
-:root {
-  --bg:#05070c; --panel:#0d121c; --panel2:#121a28; --ink:#f4f7fb; --muted:#9aa8bd;
-  --line:#243044; --blue:#2f9bff; --cyan:#5ad7ff; --silver:#d5dbe3; --good:#7dcea0;
-  --warn:#e2a15c; --hot:#ff5d7a;
-}
+:root { --bg:#05070c; --ink:#f4f7fb; --muted:#9aa8bd; --line:#243044; --blue:#2f9bff; --cyan:#5ad7ff; --silver:#d5dbe3; --good:#7dcea0; --warn:#e2a15c; --hot:#ff5d7a; }
 * { box-sizing:border-box; }
 html,body { margin:0; background:var(--bg); color:var(--ink); }
-body {
-  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  min-height:100vh;
-  background:
-    radial-gradient(900px 420px at 80% -10%, rgba(47,155,255,.22), transparent 60%),
-    radial-gradient(700px 380px at -10% 20%, rgba(90,215,255,.08), transparent 55%),
-    var(--bg);
-}
+body { font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; min-height:100vh;
+  background: radial-gradient(900px 420px at 80% -10%, rgba(47,155,255,.22), transparent 60%), var(--bg); }
 a { color:var(--cyan); }
 button,select { font:inherit; }
 .app { max-width:920px; margin:0 auto; padding:12px 14px 108px; }
-.top {
-  display:flex; gap:12px; align-items:center;
-  background:linear-gradient(180deg,#121a28,#0c111a);
-  border:1px solid var(--line); border-radius:18px; padding:10px 12px;
-  box-shadow:0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
-}
+.top { display:flex; gap:12px; align-items:center; background:linear-gradient(180deg,#121a28,#0c111a); border:1px solid var(--line); border-radius:18px; padding:10px 12px; }
 .logo { width:74px; height:74px; border-radius:16px; object-fit:cover; background:#000; flex:none; }
-.brand { min-width:0; }
 .kicker { margin:0; letter-spacing:.18em; text-transform:uppercase; color:var(--cyan); font-size:11px; font-weight:700; }
 h1 { margin:2px 0 0; font-size:22px; letter-spacing:.04em; }
-.tag { margin:2px 0 0; color:var(--muted); font-size:13px; }
-.reader {
-  position:sticky; top:8px; z-index:5; margin:12px 0;
-  display:flex; flex-wrap:wrap; gap:8px; align-items:center;
-  background:rgba(8,12,18,.92); border:1px solid var(--line); border-radius:16px;
-  padding:10px; backdrop-filter:blur(10px);
-}
-.reader b { font-size:13px; letter-spacing:.04em; }
-.reader .line { flex:1 1 180px; color:var(--muted); font-size:13px; min-height:1.2em; }
-.btn {
-  border:1px solid var(--line); background:#182232; color:var(--ink);
-  border-radius:999px; padding:8px 12px; cursor:pointer;
-}
+.tag,.meta { margin:2px 0 0; color:var(--muted); font-size:13px; }
+.reader { position:sticky; top:8px; z-index:5; margin:12px 0; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:rgba(8,12,18,.92); border:1px solid var(--line); border-radius:16px; padding:10px; backdrop-filter:blur(10px); }
+.reader b { font-size:13px; }
+.reader .line { flex:1 1 180px; color:var(--muted); font-size:13px; }
+.btn { border:1px solid var(--line); background:#182232; color:var(--ink); border-radius:999px; padding:8px 12px; cursor:pointer; }
 .btn.on { background:linear-gradient(180deg,#1d6dff,#1490ff); border-color:#67b7ff; color:#fff; }
 .btn.hot { background:#2a1820; border-color:#5a3040; color:#ffd0da; }
-.btn:active { transform:translateY(1px); }
-select.btn { padding:7px 10px; }
 .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.card, .panel {
-  background:linear-gradient(180deg,rgba(22,32,48,.95),rgba(12,18,28,.95));
-  border:1px solid var(--line); border-radius:18px; padding:14px;
-}
+.card,.panel { background:linear-gradient(180deg,rgba(22,32,48,.95),rgba(12,18,28,.95)); border:1px solid var(--line); border-radius:18px; padding:14px; }
 .card { cursor:pointer; text-align:left; color:inherit; width:100%; }
-.card:hover, .card:focus { border-color:#3d6ea8; box-shadow:0 0 0 1px rgba(47,155,255,.35), 0 10px 30px rgba(20,80,160,.2); }
 .emoji { font-size:26px; display:block; margin-bottom:6px; }
-.card h3, .panel h2, .panel h3 { margin:0 0 6px; }
-.card p, .meta { color:var(--muted); margin:0; font-size:13px; }
-.hero {
-  margin:12px 0; padding:16px; border-radius:20px;
-  background:linear-gradient(135deg,#102033,#0b121c 55%,#081018);
-  border:1px solid #2a4568; position:relative; overflow:hidden;
-}
-.hero:after {
-  content:""; position:absolute; left:-10%; right:-10%; bottom:-18px; height:46px;
-  background:linear-gradient(90deg,transparent,#1f8cff, #5ad7ff, transparent);
-  opacity:.35; filter:blur(6px); border-radius:50%;
-}
+.card h3,.panel h2,.panel h3 { margin:0 0 6px; }
+.card p { color:var(--muted); margin:0; font-size:13px; }
+.hero { margin:12px 0; padding:16px; border-radius:20px; background:linear-gradient(135deg,#102033,#0b121c 55%,#081018); border:1px solid #2a4568; }
 .pills { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0 0; }
 .pill { border:1px solid var(--line); border-radius:999px; padding:4px 8px; font-size:12px; color:var(--good); }
 ol.steps { margin:8px 0 0; padding-left:18px; }
 ol.steps li, ul li { margin:0 0 8px; }
 .term { border-left:3px solid var(--blue); padding:8px 10px; margin:0 0 8px; background:#0c1522; border-radius:0 12px 12px 0; }
-.term b { color:var(--silver); }
 .take { background:#142033; border:1px solid #2c527c; }
 .desk { background:#17140f; border:1px solid #4a3b28; }
 .desk h3 { color:var(--warn); }
-nav.dock {
-  position:fixed; left:0; right:0; bottom:0; z-index:6;
-  display:flex; gap:8px; justify-content:center;
-  padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-  background:rgba(5,7,12,.94); border-top:1px solid var(--line); backdrop-filter:blur(12px);
-}
+.miss { background:#10180f; border:1px solid #2d4a32; }
+.miss h3 { color:var(--good); }
+pre { overflow:auto; background:#070b12; border:1px solid var(--line); border-radius:12px; padding:12px; font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace; color:#d5e6ff; }
+label { display:flex; gap:8px; align-items:flex-start; margin:0 0 8px; font-size:14px; }
+input,select.field { accent-color:var(--blue); }
+.out { font-size:18px; font-weight:700; margin:8px 0; }
+nav.dock { position:fixed; left:0; right:0; bottom:0; z-index:6; display:flex; gap:8px; justify-content:center; padding:10px 12px calc(10px + env(safe-area-inset-bottom)); background:rgba(5,7,12,.94); border-top:1px solid var(--line); }
 nav.dock button { min-width:92px; }
 [hidden] { display:none !important; }
 .progress { height:8px; background:#1a2433; border-radius:99px; overflow:hidden; margin-top:10px; }
@@ -100,12 +59,12 @@ nav.dock button { min-width:92px; }
   <header class="top">
     <img class="logo" alt="Dune Learning emblem" src="data:image/jpeg;base64,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">
     <div class="brand">
-      <p class="kicker">Learning center</p>
-      <h1>DUNE LEARNING</h1>
-      <p class="tag">Shane desk · Gemini handoff · v20261009c · plain rules added · 25-minute page linked</p>
+      <p class="kicker">Fresh section · not the 15-minute page</p>
+      <h1>25-MINUTE DESK</h1>
+      <p class="tag">Exclusion filter · venue shift · sign the row · no order leaves this page</p>
     </div>
   </header>
-
+  
   <div class="reader" id="reader">
     <b>🎧 Read this page</b>
     <span class="line" id="readLine">Off. Tap listen when you want the page read out loud.</span>
@@ -121,189 +80,129 @@ nav.dock button { min-width:92px; }
 
   <main id="view"></main>
 </div>
+
 <nav class="dock">
   <button class="btn" id="prevBtn" type="button">← Back</button>
   <button class="btn on" id="homeBtn" type="button">🎓 Center</button>
   <button class="btn" id="nextBtn" type="button">Next →</button>
 </nav>
+
 <script>
-const LOGO = document.querySelector(".logo").src;
+const DONE_KEY = "dl-done-25";
 const pages = [
   {
-    id:"center",
-    title:"Learning center",
-    emoji:"🎓",
-    speak:"Dune Learning center. Five lessons from the Gemini handoff. Terminal, local model, Kevin's eight jobs, defensive wrappers, and the 15 minute Bitcoin gate. Pick a card. The reader can be turned on, paused, or switched off on every page. Old course.html was left alone so the iPhone Instagram cache can break on this new file.",
-    html:`
-      <section class="hero">
-        <h2>🎓 The course, finally in one desk</h2>
-        <p>This is the Gemini handoff, filed as its own page so Instagram on the iPhone stops serving the old course. Five lessons, plus the plain-language rules that were missing. The 25-minute section is its own file. Original links stay attached. A missing fact stays missing.</p>
-        <div class="pills"><span class="pill">🎧 Read on / pause / off</span><span class="pill">🛡️ Defense only</span><span class="pill">✋ You sign the draft</span></div>
-        <div class="progress"><span id="bar"></span></div>
-        <p class="meta" id="barLabel" style="margin-top:6px">Progress saves on this phone.</p>
-      </section>
-      <div class="grid" id="cards"></div>
-      <section class="panel" style="margin-top:10px"><h3>⏱️ Fresh 25-minute section</h3><p>Missing gate detail, binary versus perps, and the handoff function live on their own page. <a href="min25.html">Open min25.html</a>. The 15-minute lesson on this course was not replaced.</p></section>
-      <section class="panel" style="margin-top:10px">
-        <h3>📌 How this desk is used</h3>
-        <p>Web chat is for brainstorming. The terminal is for building. The local model only sees the folder you point it at. The 15-minute Bitcoin model watches. It does not fire a trade. You are the reliability check.</p>
+    id:"center", title:"25-minute center", emoji:"⏱️",
+    speak:"25 minute section. This is a fresh page. The old 15 minute lesson was not overwritten. This page holds the exclusion filter, the venue shift, and the developer handoff. The board names a row. It does not send an order.",
+    html:`<section class="hero"><h2>⏱️ Fresh 25-minute section</h2>
+      <p>New file. btc15.html was not touched. This is the missing gate detail plus where a validated row is allowed to live. Binary markets and perps are not the same job.</p>
+      <div class="pills"><span class="pill">🎧 Read on / pause / off</span><span class="pill">🚫 No order button</span><span class="pill">✋ Human signs the row</span></div>
+      <div class="progress"><span id="bar"></span></div>
+      <p class="meta" id="barLabel">Progress saves on this phone.</p>
+    </section><div class="grid" id="cards"></div>`
+  },
+  {
+    id:"filter", title:"Exclusion filter", emoji:"🚫",
+    speak:"The 25 minute section uses the 15 minute candle as an exclusion filter. The point is no-trade. Cowen risk high and a down weekly kills longs. They get logged and not executed. VWAP resets at 00:00 UTC. Price must close back through it. A sweep of the same-day low is not a buy. Wait for a later 15 minute candle to close back above that low and close green. 20 EMA must agree. RSI must cross 50. Wicks do not count. 1 hour and 4 hour must share the bias. No rule change until 30 closed rows are logged.",
+    html:`<section class="hero"><p class="kicker">Page 1</p><h2>🚫 The exclusion filter</h2>
+      <p class="meta">Built to print no-trade and keep chop from eating fees. The clock inside the gate is still the 15-minute candle. This page is the 25-minute desk around it.</p></section>
+      <section class="panel"><ol class="steps">
+        <li><b>Cowen gate.</b> Risk elevated and the weekly trending down invalidates a 15-minute long. Log it. Do not execute it.</li>
+        <li><b>00:00 UTC VWAP.</b> Resets at the crypto day. Price has to close back through that line.</li>
+        <li><b>Sweep and reclaim.</b> A dip under the same-day low is not a buy. A later 15-minute candle must close back above that low, and the body must be green.</li>
+        <li><b>Convergence.</b> 20 EMA on the trade side. RSI cleanly through 50.</li>
+        <li><b>Close only.</b> A wick is a reach. The 15-minute timer has to expire with the body across the level.</li>
+        <li><b>Higher window.</b> 1-hour and 4-hour must share the 15-minute bias. If they do not, the trigger is dead.</li>
+        <li><b>30-row lock.</b> No parameter change until 30 fully closed rows are logged. The earlier lesson said 30 closed candles. Same discipline: do not retune on a feeling.</li>
+      </ol></section>
+      <section class="panel desk" style="margin-top:10px"><h3>🛠️ Desk rule</h3><p>Most windows should be no-trade. A row hits the overlay only after a human signs it.</p></section>`
+  },
+  {
+    id:"venue", title:"Binary vs perps", emoji:"⚖️",
+    speak:"Platform shift. Polymarket has 15 minute and hourly Bitcoin up down markets. That is the wrong venue for an indicator scalp. A binary settles at 0 or 1. A two thousand dollar move still pays only the probability you bought. Perps pay the dollar move. Polymarket launched perps on September 3 2026 with up to 20x on Bitcoin. The handoff still prefers Hyperliquid for the deeper book on a fast scalp, and keeps Polymarket for event narratives. This page does not route an order to either.",
+    html:`<section class="hero"><p class="kicker">Page 2</p><h2>⚖️ Binary markets vs perps</h2>
+      <p class="meta">Handoff position, checked against the Sept 3, 2026 Polymarket perps launch.</p></section>
+      <section class="panel"><h3>Why the 15-minute up/down book is the wrong tool</h3>
+        <p>Polymarket does list 15-minute and hourly Bitcoin up/down markets. A binary settles at $0 or $1. If VWAP catches a $2,000 push, the contract pays the odds you bought, not the size of the move.</p>
+        <p>A candle-close scalp wants dollar-delta and a book that can fill the size. That is a perpetual, not a yes/no share.</p></section>
+      <section class="panel" style="margin-top:10px"><h3>What actually launched</h3>
+        <p>Polymarket Perps went live September 3, 2026. BTC leverage slider goes to 20x. Fees and open interest are a different question from the cap. <a href="https://news.polymarket.com/p/inside-polymarket-perps">Polymarket's own note</a>.</p>
+        <p>The handoff still wants Hyperliquid for the fast VWAP scalp, on the claim of a deeper book. That depth claim was not re-measured here. Do not treat it as a live volume print.</p>
+        <div class="term"><b>Split.</b> Polymarket for event narratives. Perps for a candle-close scalp. Neither gets an auto-send from this desk.</div></section>`
+  },
+  {
+    id:"handoff", title:"Developer handoff", emoji:"🧩",
+    speak:"Developer handoff. The snippet is a draft, not a live alerter. It returns false on a wick. A long dies if Cowen risk is high and the weekly is down. The true branch only arms after a sweep, a green close back above the daily low, a VWAP reclaim, aligned EMA, RSI over 50, and both higher windows long. A clean VWAP reclaim with no sweep returns false in this draft. That is narrower than the written gate. Alerts stay on the visual board until you say otherwise. Nothing posts to a terminal by itself.",
+    html:`<section class="hero"><p class="kicker">Page 3</p><h2>🧩 Developer handoff</h2>
+      <p class="meta">Exact draft from the file. It is a filter, not an order router.</p></section>
+      <section class="panel"><pre>const MACRO_RISK_HIGH = checkCowenRisk();
+const WEEKLY_TREND_DOWN = checkWeeklyTrend();
+
+function evaluate15mCandle(candle, vwap, ema20, rsi, dailyLow, timeframe1H, timeframe4H) {
+    if (MACRO_RISK_HIGH && WEEKLY_TREND_DOWN && candle.direction === 'LONG') {
+        logTrade("OBSERVE_ONLY: Macro risk gate failed.");
+        return false;
+    }
+    if (candle.isWickOnly()) return false;
+    const sweptLiquidity = checkSweep(candle, dailyLow);
+    if (sweptLiquidity && candle.close > dailyLow && candle.color === 'GREEN') {
+        if (candle.close > vwap && ema20.aligned && rsi > 50) {
+            if (timeframe1H.bias === 'LONG' && timeframe4H.bias === 'LONG') {
+                triggerOverlayAlert("VALID LONG SETUP");
+                return true;
+            }
+        }
+    }
+    return false;
+}</pre>
+      <p class="meta">Gap in the draft: the true branch requires a sweep. A VWAP reclaim with no sweep falls through to false. The written gate treats the sweep as its own protocol, not the only door. Do not ship this function as the whole model.</p></section>
+      <section class="panel desk" style="margin-top:10px"><h3>Where alerts go</h3>
+        <p>Visual board first. The overlay can name the row. A terminal file can hold the same row after you sign it. This page does not open a socket to Hyperliquid or Polymarket.</p></section>`
+  },
+  {
+    id:"board", title:"Sign-off board", emoji:"📋",
+    speak:"Sign-off board. Check the boxes from a closed candle. The page tells you observe only, no trade, or ready to sign. Ready to sign is a note. It is not an order.",
+    html:`<section class="hero"><p class="kicker">Page 4</p><h2>📋 Sign-off board</h2>
+      <p class="meta">Fill this from a candle that has already closed. Output stays on the page.</p></section>
+      <section class="panel" id="board">
+        <label><input type="checkbox" id="risk"> Cowen risk high and weekly down</label>
+        <label><input type="checkbox" id="wick"> This was a wick only</label>
+        <label><input type="checkbox" id="vwap"> 15-minute body closed back through 00:00 UTC VWAP</label>
+        <label><input type="checkbox" id="ema"> 20 EMA on the same side</label>
+        <label><input type="checkbox" id="rsi"> RSI crossed 50</label>
+        <label><input type="checkbox" id="sweep"> Same-day low was swept, then a later 15-minute body closed back above it and closed green</label>
+        <label><input type="checkbox" id="htf"> 1-hour and 4-hour agree</label>
+        <label>Direction
+          <select class="field" id="dir"><option>LONG</option><option>SHORT</option></select>
+        </label>
+        <p class="out" id="verdict">NO-TRADE</p>
+        <p class="meta" id="why">Check a closed candle. Nothing is sent.</p>
       </section>`
-  },
-  {
-    id:"terminal",
-    title:"AI in the terminal",
-    emoji:"⌨️",
-    speak:"Lesson 1. AI in the terminal. A 34 minute demonstration by NetworkChuck on moving AI out of web browser wrappers and into the command line. Gemini writes a file. Claude Code reads that file. Three tools share one folder and do not get root. A critic agent flags errors before execution. OpenCode runs the accepted code and reads the terminal output. The take: web UIs are for brainstorming. Terminal AIs are for building. On Shane's desk, the officer note becomes a file. The local model points only at that folder. It cannot invent a badge or a score. A missing fact stays missing.",
-    html:`
-      <section class="hero"><p class="kicker">Lesson 1 of 5</p><h2>⌨️ AI in the terminal</h2>
-        <p class="meta">NetworkChuck · 34 minutes · original video and written guide</p>
-        <p><a href="https://www.youtube.com/watch?v=MsQACpcuTkU">Open the video</a> · <a href="https://github.com/theNetworkChuck/ai-in-the-terminal">Written guide</a></p>
-      </section>
-      <section class="panel"><h3>👀 What this is</h3><p>A demonstration of moving AI out of web browser wrappers and directly into the command line. The model can read, write, and execute files inside one directory without copy-paste.</p></section>
-      <section class="panel" style="margin-top:10px"><h3>🪜 What he did, in order</h3>
-        <ol class="steps">
-          <li><b>Gemini writes a file.</b> Chuck generates the script logic and saves it as a file, not a chat bubble.</li>
-          <li><b>Claude Code integration.</b> Claude Code opens in the terminal, reads that file, and assesses the structure.</li>
-          <li><b>Three tools, one folder.</b> Gemini, Claude, and the third tool point at one isolated directory. No root access.</li>
-          <li><b>Critic agent.</b> A second model only looks for flaws, security risks, and logic errors before anything runs.</li>
-          <li><b>OpenCode.</b> Accepted code is executed and the terminal output is read back so errors can be fixed in place.</li>
-        </ol>
-      </section>
-      <section class="panel" style="margin-top:10px"><h3>📖 Terms</h3>
-        <div class="term"><b>Claude Code.</b> Anthropic's CLI. It reads a local directory and writes files from the command line.</div>
-        <div class="term"><b>Critic agent.</b> An LLM prompted only to find flaws, security risks, or logic errors in another model's code.</div>
-        <div class="term"><b>OpenCode.</b> An open-source runner that lets the model execute locally and read the terminal so it can fix its own errors.</div>
-      </section>
-      <section class="panel take" style="margin-top:10px"><h3>💡 The take</h3><p>Web UIs are for brainstorming. Terminal AIs are for building. Constrain the model to one folder and put a critic in front of execution. You automate drafting and debugging without handing over the rest of the disk.</p></section>
-      <section class="panel desk" style="margin-top:10px"><h3>🛠️ What changes on Shane's desk</h3><p>The officer writes a note and it becomes a file. The local terminal model points only at that folder. No web, no broader OS, no stream overlay software. It reads the note, writes a draft as a second file, and stops. It cannot invent a badge or a score. If a fact is missing, the critic constraint keeps it missing.</p></section>
-<section class="panel miss" style="margin-top:10px"><h3>📌 Plain version, added</h3><p>Web chat is brainstorming only. The build is a file. Gemini, or the local model, writes the file. Claude Code reads that file from the terminal. Three tools, one folder, no root. Critic scans before OpenCode runs. OpenCode reads the terminal and fixes in place. Then it stops. You sign the second file.</p></section>`
-  },
-  {
-    id:"local",
-    title:"Hosting AI locally",
-    emoji:"🔒",
-    speak:"Lesson 2. Hosting AI locally for privacy. Ollama manages the weights. You pull a model such as Qwen or Llama. A local window talks to it so the chat looks normal, but the note never leaves the machine. Stop before any public domain. On Shane's desk the Qwen model runs on the ROG box. Two 2080s with 8 gigabytes each are not one 16 gigabyte pool. Split layers across the cards, or run a smaller Q4 that fits on one card, or the PCIe hop will cripple it. Shane signs the draft. Nothing posts automatically.",
-    html:`
-      <section class="hero"><p class="kicker">Lesson 2 of 5</p><h2>🔒 Hosting AI locally for privacy</h2>
-        <p class="meta">Run the weights on metal you own</p>
-        <p><a href="https://www.youtube.com/watch?v=Wjrdr0NU4Sk">Open the video</a></p>
-      </section>
-      <section class="panel"><h3>👀 What this is</h3><p>A guide to running large language models on your own hardware with Ollama, so a sensitive note never leaves the machine.</p></section>
-      <section class="panel" style="margin-top:10px"><h3>🪜 What he did, in order</h3>
-        <ol class="steps">
-          <li><b>Ollama install.</b> The framework that holds and serves local weights.</li>
-          <li><b>Model pull.</b> Terminal pull of a specific tag, Qwen or Llama, down to the box.</li>
-          <li><b>Window.</b> A local WebUI so the chat looks normal without using the command line for every question.</li>
-          <li><b>Network isolation.</b> The setup stops before any public domain. No telemetry door.</li>
-        </ol>
-      </section>
-      <section class="panel" style="margin-top:10px"><h3>📖 Terms</h3>
-        <div class="term"><b>Ollama.</b> Lightweight framework for running, managing, and talking to local models.</div>
-        <div class="term"><b>Public domain, in this lesson.</b> Any server or API on the open internet, including a vendor chat endpoint. Not the copyright meaning.</div>
-        <div class="term"><b>Local window.</b> A localhost UI that looks like a chat site but only talks to the GPU in the room.</div>
-      </section>
-      <section class="panel take" style="margin-top:10px"><h3>💡 The take</h3><p>Privacy does not exist through an API. If the note is sensitive, or the trading model is proprietary, the compute happens on metal you own, cut off from outbound public requests. A local guess is still a guess.</p></section>
-      <section class="panel desk" style="margin-top:10px"><h3>🛠️ What changes on Shane's desk</h3><p>Qwen runs on the ROG box. Two 2080s, 8 GB each. They are not one 16 GB pool. Split layers across the two cards, or run a Q4 that fits on one card. A naive split across PCIe will feel broken. The box stays off public domains. Shane signs the draft. Nothing posts automatically.</p></section>
-      <section class="panel miss" style="margin-top:10px"><h3>📌 Plain version, added</h3><p>Ollama keeps the weights on the ROG box, cut off from public telemetry. Two 8 GB 2080s are not a 16 GB pool. Split the layers yourself, or run a Q4 that fits on one card. If you do neither, PCIe latency makes the model feel broken. Privacy is not the same as correct.</p></section>`
-  },
-  {
-    id:"kevin",
-    title:"Kevin's 8 jobs",
-    emoji:"🧩",
-    speak:"Lesson 3. Kevin's 8 jobs and the 81 minute tour. He sets up an isolated pod over SSH, uses paid Claude Code for hard reasoning, and Ollama with Hermes for tool use. Q6 for tools because Q4 gets fuzzy on tool calls. The eight jobs are revenue, content, video, offer, routing, follow-up, reliability, and memory. Do not add a ninth. On Shane's desk the officer note is content. Local Qwen is routing and formatting. Q6 if it fits. The model cannot auto-email or approve. Shane is the reliability check.",
-    html:`
-      <section class="hero"><p class="kicker">Lesson 3 of 5</p><h2>🧩 Kevin's 8 jobs and the 81-minute tour</h2>
-        <p class="meta">One person. Isolated jobs. No ninth job.</p>
-        <p><a href="https://www.youtube.com/watch?v=xB4Vwwj0KQo">81-minute tour</a> · <a href="https://www.youtube.com/watch?v=puPAEyNfdhs">Eight jobs</a></p>
-      </section>
-      <section class="panel"><h3>👀 What this is</h3><p>An operational breakdown of a one-person business split into specialized pods so one model is not asked to do every job and then get confused.</p></section>
-      <section class="panel" style="margin-top:10px"><h3>🪜 The tour, in order</h3>
-        <ol class="steps">
-          <li><b>SimplePod and SSH.</b> Isolated environment, key login, not a wide-open desktop.</li>
-          <li><b>Claude Code, paid.</b> High-reasoning work stays on the paid tier.</li>
-          <li><b>Ollama and Hermes.</b> Local models for the repetitive jobs. Hermes is the tool-use specialist.</li>
-          <li><b>Q6 for tools.</b> Cleaner than Q4. Tool calls fail less when the weights are less crushed.</li>
-        </ol>
-      </section>
-      <section class="panel" style="margin-top:10px"><h3>🗂️ The 8 jobs, in order</h3>
-        <ol class="steps">
-          <li>💰 Revenue</li><li>📝 Content</li><li>🎬 Video</li><li>🎁 Offer</li>
-          <li>🧭 Routing</li><li>📬 Follow-up</li><li>✅ Reliability</li><li>🧠 Memory</li>
-        </ol>
-        <p class="meta">Rule: do not add a ninth job. Scope stays strict.</p>
-      </section>
-      <section class="panel" style="margin-top:10px"><h3>📖 Terms</h3>
-        <div class="term"><b>Hermes.</b> Open-source model tuned for tool use and sticking to the system prompt.</div>
-        <div class="term"><b>Q6.</b> 6-bit weights. More VRAM than Q4, higher reasoning and cleaner tool calls.</div>
-        <div class="term"><b>SimplePod.</b> A light isolated container for one script or one model.</div>
-      </section>
-      <section class="panel take" style="margin-top:10px"><h3>💡 The take</h3><p>Do not ask one model to do everything. High-tier APIs for hard reasoning. Quantized local models for routing and tool calls. The handoff is the lesson. The group price and the shorts are the ad.</p></section>
-      <section class="panel desk" style="margin-top:10px"><h3>🛠️ What changes on Shane's desk</h3><p>The desk is job-based. Officer note is the content phase. Local Qwen is routing and formatting. Run Q6 if it fits across the 2080s so it does not invent facts. Forbidden ninth job: auto-email, auto-approve, auto-post. Shane signs the file. That is the reliability check.</p></section>
-<section class="panel miss" style="margin-top:10px"><h3>📌 Plain version, added</h3><p>SimplePod plus SSH is the isolation. Paid Claude Code for the hard reasoning. Hermes, local, for rigid tool calls. Q6 if the cards can hold it. Q4 gets fuzzy and tool calls fail. Eight jobs only: revenue, content, video, offer, routing, follow-up, reliability, memory. Ninth job is forbidden. No auto-email, no auto-approve, no auto-post.</p></section>`
-  },
-  {
-    id:"security",
-    title:"Security and wrappers",
-    emoji:"🛡️",
-    speak:"Lesson 4. Security and wrappers. Defensive only. Shannon stage file, the Stadium visual repo, Ruflo and Mimic as wrappers. Long secrets, lockouts, failure logs, no API keys in git. No attack steps, no exploit payloads, no brute force, Camofox stays out. On Shane's desk the officer note is the stage file. A missing fact fails safe and stays missing. The stream overlay can borrow the Stadium idea, Three.js and GSAP, only after the file is approved.",
-    html:`
-      <section class="hero"><p class="kicker">Lesson 4 of 5</p><h2>🛡️ Security and wrappers</h2>
-        <p class="meta">Staging, defense, visual layout. Not offense.</p>
-        <p><a href="https://www.instagram.com/reel/DXW_055D7GF/">Shannon reel</a> · <a href="https://github.com/KeygraphHQ/shannon">Project</a> · <a href="https://github.com/us/shannon-on-claude-code">Wrapper</a></p>
-        <p><a href="https://github.com/thebuggeddev/football-stadium">Stadium</a> · <a href="https://github.com/ruvnet/ruflo">Ruflo</a> · <a href="https://github.com/littledivy/mimic">Mimic</a></p>
-      </section>
-      <section class="panel"><h3>👀 What this is</h3><p>Defensive repos, UI patterns, and wrappers. Stage the input, constrain the tool, draw the approved file. Attack steps are not in this course.</p></section>
-      <section class="panel" style="margin-top:10px"><h3>🪜 What gets copied</h3>
-        <ol class="steps">
-          <li><b>Shannon stage file.</b> Inputs land in a staging file and get structured before main logic.</li>
-          <li><b>Stadium repo.</b> Three.js and GSAP for a visual board. Their prices are fake. Yours are approved rows only.</li>
-          <li><b>Ruflo and Mimic.</b> Wrappers that mimic an environment or route work. Still one job first.</li>
-          <li><b>Defense setup.</b> Long secrets, lockout on failure, failure log, no API keys in git.</li>
-        </ol>
-      </section>
-      <section class="panel" style="margin-top:10px"><h3>📖 Terms</h3>
-        <div class="term"><b>Three.js and GSAP.</b> Browser 3D and animation libraries used by the Stadium repo.</div>
-        <div class="term"><b>Wrapper.</b> A shell around another tool that adds constraints, a UI, or a security layer.</div>
-        <div class="term"><b>Stage file.</b> The holding file where data is checked and formatted before the model or the overlay sees it.</div>
-      </section>
-      <section class="panel take" style="margin-top:10px"><h3>💡 The take</h3><p>Local desk security is defense and structure. Stage files and wrappers are chokepoints. Bad or incomplete data gets rejected before it hits the model or the stream overlay.</p></section>
-      <section class="panel desk" style="margin-top:10px"><h3>🛠️ What changes on Shane's desk</h3><p>Defensive posture only. No attack steps, no exploit payloads, no brute-force guessing. Camofox stays out. The officer note is the stage file. Long secrets, lockouts, failure logs. A missing fact fails safe and stays missing. Keys stay out of version control. The overlay can use the Stadium idea, GSAP or Three.js, to draw the approved file into OBS. Not before it is signed.</p></section>
-<section class="panel miss" style="margin-top:10px"><h3>📌 Plain version, added</h3><p>Shannon stage file first. If a fact is missing it fails safe and stays missing. Ruflo and Mimic wrap the job so the model stays on one task. Long secrets, lockout, failure log, no keys in git. Stadium, Three.js and GSAP, draws the signed file to OBS. Camofox stays out. No attack steps.</p></section>`
-  },
-  {
-    id:"btc",
-    title:"15-minute Bitcoin",
-    emoji:"₿",
-    speak:"Lesson 5. The 15 minute Bitcoin model. Observer, not an auto-trader. Check Cowen risk from 0 to 1 first. If risk is high and the weekly is down, a long stays a note. Wait for the VWAP reset at 00:00 UTC and a close back through VWAP. 20 EMA on the same side. RSI through 50. The 15 minute candle must close. A wick is not a fill. If the same-day low is swept, wait for a 15 minute close back above that low and a green close. Higher window, 1 hour and 4 hour, must agree. Log 30 closed candles before changing a gate. Only then does a row go to the stream overlay.",
-    html:`
-      <section class="hero"><p class="kicker">Lesson 5 of 5</p><h2>₿ The 15-minute Bitcoin model</h2>
-        <p class="meta">Observer. Closed candles only. Higher window must agree.</p>
-        <p><a href="https://www.youtube.com/@BenjaminCowen">Cowen risk</a> · <a href="https://www.youtube.com/watch?v=dymjubYYr_g">VWAP reclaim</a> · <a href="https://www.youtube.com/watch?v=xvCExiVaCeY">Closed break</a></p>
-        <p><a href="https://www.youtube.com/watch?v=PGK_wp_H_8U">Sweep</a> · <a href="https://www.youtube.com/playlist?list=PLXWi52aRZnNG3gx2Qa-Z0QlT_HueflWI6">Higher window</a></p>
-      </section>
-      <section class="panel"><h3>👀 What this is</h3><p>A rigid 15-minute Bitcoin ruleset. Daily reset, moving averages, and absolute candle closes. Not a prediction bot that fires every candle.</p></section>
-      <section class="panel" style="margin-top:10px"><h3>🪜 The gate, in order</h3>
-        <ol class="steps">
-          <li><b>Macro risk.</b> Cowen 0 to 1. High risk and a down weekly means a long is a note, not an execution.</li>
-          <li><b>VWAP reset and reclaim.</b> VWAP resets at 00:00 UTC. Price must close back through it.</li>
-          <li><b>Indicator alignment.</b> 20 EMA on the same side. RSI crosses through 50.</li>
-          <li><b>Closed break.</b> Wait for the 15-minute candle to finish. A wick is not a fill. The body has to close.</li>
-          <li><b>Sweep.</b> If the same-day low is taken, wait for a 15-minute close back above that low, and a green close.</li>
-          <li><b>Higher window.</b> 1H and 4H have to agree with the 15-minute signal.</li>
-          <li><b>Log and gate.</b> 30 closed candles logged before any rule change.</li>
-        </ol>
-      </section>
-      <section class="panel" style="margin-top:10px"><h3>📖 Terms</h3>
-        <div class="term"><b>VWAP.</b> Volume weighted average price. Resets daily at 00:00 UTC.</div>
-        <div class="term"><b>20 EMA.</b> 20-period exponential average, weighted toward the newest candles.</div>
-        <div class="term"><b>Wick vs close.</b> The wick is the reach. The close is the price at the end of the 15 minutes. This model ignores wick breaks.</div>
-        <div class="term"><b>Sweep.</b> Price dips under a known low, then closes back above it. Stops get tagged. That alone is not the signal.</div>
-      </section>
-      <section class="panel take" style="margin-top:10px"><h3>💡 The take</h3><p>Discipline over prediction. Most windows should be no-trade. A model that fires every 15 minutes is a fee machine. Closed candle plus VWAP, EMA, RSI, and the higher window cuts the wick fakeouts.</p></section>
-      <section class="panel desk" style="margin-top:10px"><h3>🛠️ What changes on Shane's desk</h3><p>The 15-minute model is an observer, not an auto-trader. It may name a direction. It does not fire every candle. Higher window agrees. 15-minute candle has closed. Cowen risk is written to the file first. Only then does a row go to the stream overlay.</p></section>
-      <section class="panel miss" style="margin-top:10px"><h3>📌 Plain version, added</h3><p>The fresh detail lives on the 25-minute page, not here. <a href="min25.html">Open the 25-minute section</a>. Exclusion filter, binary versus perps, and the handoff function. This 15-minute lesson stays the short gate.</p></section>`
   }
 ];
+function afterRender(){
+  const board = document.getElementById("board");
+  if(!board) return;
+  const verdict = document.getElementById("verdict");
+  const why = document.getElementById("why");
+  const read = () => {
+    const risk = document.getElementById("risk").checked;
+    const wick = document.getElementById("wick").checked;
+    const vwap = document.getElementById("vwap").checked;
+    const ema = document.getElementById("ema").checked;
+    const rsi = document.getElementById("rsi").checked;
+    const sweep = document.getElementById("sweep").checked;
+    const htf = document.getElementById("htf").checked;
+    const dir = document.getElementById("dir").value;
+    if(dir === "LONG" && risk){ verdict.textContent = "OBSERVE ONLY"; why.textContent = "Macro gate failed. Log the long. Do not execute it."; return; }
+    if(wick){ verdict.textContent = "NO-TRADE"; why.textContent = "Wick is not a fill."; return; }
+    if(!(vwap && ema && rsi && htf)){ verdict.textContent = "NO-TRADE"; why.textContent = "VWAP close, EMA, RSI, and both higher windows are required."; return; }
+    if(!sweep){ verdict.textContent = "NOTE ONLY"; why.textContent = "Written gate can see a VWAP reclaim. The handoff function still returns false without the sweep. Do not call it valid until you decide which rule is live."; return; }
+    verdict.textContent = "READY TO SIGN";
+    why.textContent = "Row can go on the overlay after you sign it. This page still does not send an order.";
+  };
+  board.querySelectorAll("input,select").forEach(el => el.addEventListener("change", read));
+  read();
+}
 
 const view = document.getElementById("view");
 const readLine = document.getElementById("readLine");
@@ -311,20 +210,14 @@ const listenBtn = document.getElementById("listenBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 const offBtn = document.getElementById("offBtn");
 const rateEl = document.getElementById("rate");
-let index = 0;
-let chunks = [];
-let cursor = 0;
-let playing = false;
-let paused = false;
-const done = new Set(JSON.parse(localStorage.getItem("dl-done") || "[]"));
-
-function saveDone(){ localStorage.setItem("dl-done", JSON.stringify([...done])); }
+let index = 0, chunks = [], cursor = 0, playing = false, paused = false;
+const done = new Set(JSON.parse(localStorage.getItem(DONE_KEY) || "[]"));
+function saveDone(){ localStorage.setItem(DONE_KEY, JSON.stringify([...done])); }
 function current(){ return pages[index]; }
-
 function render(){
   const p = current();
   view.innerHTML = p.html;
-  if(p.id === "center"){
+  if(p.id === "center" && document.getElementById("cards")){
     const cards = document.getElementById("cards");
     pages.slice(1).forEach((lesson, i) => {
       const b = document.createElement("button");
@@ -335,54 +228,30 @@ function render(){
     });
     const opened = pages.slice(1).filter(x => done.has(x.id)).length;
     const bar = document.getElementById("bar");
-    if(bar) bar.style.width = (opened / 5 * 100) + "%";
+    if(bar) bar.style.width = (opened / (pages.length-1) * 100) + "%";
     const label = document.getElementById("barLabel");
-    if(label) label.textContent = opened + " of 5 lessons opened on this phone.";
-  } else {
-    done.add(p.id); saveDone();
-  }
+    if(label) label.textContent = opened + " of " + (pages.length-1) + " sections opened on this phone.";
+  } else done.add(p.id), saveDone();
+  if(typeof afterRender === "function") afterRender();
   document.getElementById("prevBtn").disabled = index === 0;
   document.getElementById("nextBtn").textContent = index === pages.length - 1 ? "End" : "Next →";
   if(playing) startAt(0);
   else readLine.textContent = "Off. Tap listen when you want this page read out loud.";
   window.scrollTo(0,0);
 }
-function go(i){
-  index = Math.max(0, Math.min(pages.length-1, i));
-  history.replaceState(null, "", "#" + current().id);
-  render();
-}
-function split(text){
-  return text.replace(/\s+/g," ").split(/(?<=[.!?])\s+/).filter(Boolean);
-}
+function go(i){ index = Math.max(0, Math.min(pages.length-1, i)); history.replaceState(null, "", "#" + current().id); render(); }
+function split(text){ return text.replace(/\s+/g," ").split(/(?<=[.!?])\s+/).filter(Boolean); }
 function startAt(i){
-  if(!window.speechSynthesis){
-    readLine.textContent = "This browser has no speech reader. iPhone Safari does.";
-    return;
-  }
-  chunks = split(current().speak);
-  cursor = i;
-  playing = true;
-  paused = false;
-  listenBtn.classList.add("on");
-  listenBtn.textContent = "🔊 On";
-  localStorage.setItem("dl-read","on");
-  pump();
+  if(!window.speechSynthesis){ readLine.textContent = "This browser has no speech reader. iPhone Safari does."; return; }
+  chunks = split(current().speak); cursor = i; playing = true; paused = false;
+  listenBtn.classList.add("on"); listenBtn.textContent = "🔊 On"; localStorage.setItem("dl-read","on"); pump();
 }
 function pump(){
   if(!playing || paused) return;
-  if(cursor >= chunks.length){
-    playing = false;
-    listenBtn.classList.remove("on");
-    listenBtn.textContent = "▶️ Listen";
-    readLine.textContent = "Finished this page.";
-    return;
-  }
+  if(cursor >= chunks.length){ playing = false; listenBtn.classList.remove("on"); listenBtn.textContent = "▶️ Listen"; readLine.textContent = "Finished this page."; return; }
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(chunks[cursor]);
-  u.rate = Number(rateEl.value);
-  u.lang = "en-US";
-  readLine.textContent = chunks[cursor];
+  u.rate = Number(rateEl.value); u.lang = "en-US"; readLine.textContent = chunks[cursor];
   u.onend = () => { cursor += 1; if(playing && !paused) pump(); };
   u.onerror = () => { readLine.textContent = "Reader stopped. Tap listen again."; };
   window.speechSynthesis.speak(u);
@@ -390,25 +259,13 @@ function pump(){
 listenBtn.onclick = () => startAt(0);
 pauseBtn.onclick = () => {
   if(!playing) return;
-  if(!paused){
-    paused = true;
-    window.speechSynthesis.cancel();
-    pauseBtn.textContent = "▶️ Resume";
-    readLine.textContent = "Paused. " + (chunks[cursor] || "");
-  } else {
-    paused = false;
-    pauseBtn.textContent = "⏸️ Pause";
-    pump();
-  }
+  if(!paused){ paused = true; window.speechSynthesis.cancel(); pauseBtn.textContent = "▶️ Resume"; readLine.textContent = "Paused. " + (chunks[cursor] || ""); }
+  else { paused = false; pauseBtn.textContent = "⏸️ Pause"; pump(); }
 };
 offBtn.onclick = () => {
-  playing = false; paused = false;
-  if(window.speechSynthesis) window.speechSynthesis.cancel();
-  listenBtn.classList.remove("on");
-  listenBtn.textContent = "▶️ Listen";
-  pauseBtn.textContent = "⏸️ Pause";
-  readLine.textContent = "Off. Tap listen when you want this page read out loud.";
-  localStorage.setItem("dl-read","off");
+  playing = false; paused = false; if(window.speechSynthesis) window.speechSynthesis.cancel();
+  listenBtn.classList.remove("on"); listenBtn.textContent = "▶️ Listen"; pauseBtn.textContent = "⏸️ Pause";
+  readLine.textContent = "Off. Tap listen when you want this page read out loud."; localStorage.setItem("dl-read","off");
 };
 rateEl.onchange = () => { if(playing && !paused) pump(); };
 document.getElementById("prevBtn").onclick = () => go(index-1);
@@ -417,6 +274,7 @@ document.getElementById("homeBtn").onclick = () => go(0);
 const hash = location.hash.replace("#","");
 const found = pages.findIndex(p => p.id === hash);
 go(found >= 0 ? found : 0);
+
 </script>
 </body>
 </html>
