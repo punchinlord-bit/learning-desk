@@ -3,58 +3,113 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dune Learning — lessons</title>
+<title>Dune Learning — full lessons</title>
 <style>
 :root { --ink:#1a1814; --muted:#6b6560; --line:#e4dfd8; --bg:#f6f3ee; --card:#fffdf9; }
-body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 Georgia, serif; }
-header { background:var(--card); border-bottom:1px solid var(--line); padding:20px 16px; position:sticky; top:0; }
-h1 { font:600 1.4rem/1.2 -apple-system,sans-serif; margin:0 0 6px; }
-p { margin:0 0 8px; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:18px 16px; position:sticky; top:0; z-index:2; }
+h1 { font:600 1.35rem/1.2 -apple-system,sans-serif; margin:0 0 6px; }
+nav { display:flex; gap:8px; overflow:auto; padding-top:8px; }
+nav a { font:13px/1 -apple-system,sans-serif; color:var(--ink); text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:7px 10px; white-space:nowrap; background:#f3efe8; }
+main { max-width:760px; margin:0 auto; padding:14px 14px 64px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:14px 0; }
+h2 { font:600 1.15rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1rem/1.3 -apple-system,sans-serif; margin:16px 0 6px; }
+p, li { margin:0 0 8px; }
 .muted { color:var(--muted); font:13px/1.4 -apple-system,sans-serif; }
-main { max-width:760px; margin:0 auto; padding:12px; }
-.card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px; margin:10px 0; }
-h2 { font:600 1.05rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
 a { color:#7a4e24; }
-input { width:100%; border:1px solid var(--line); border-radius:10px; padding:10px; font:15px -apple-system,sans-serif; }
 </style>
 </head>
 <body>
 <header>
-<p class="muted">Dune Learning</p>
-<h1>A lesson for every listed video</h1>
-<p>Written from the title and the public listing. None of these were watched for this page. If a claim is only in the title, it stays a claim.</p>
-<input id="q" placeholder="Filter by name" aria-label="Filter">
+<p class="muted">Dune Learning · written from public transcripts, October 9, 2026</p>
+<h1>Full lessons</h1>
+<nav>
+<a href="#os">81-minute OS</a>
+<a href="#hermes">Eight jobs</a>
+<a href="#flux500">Drop folder</a>
+<a href="#fluxbiz">One-person stack</a>
+<a href="#rest">Still listed only</a>
+</nav>
 </header>
 <main>
-<article id="v1" class="card"><p class="muted">Kevin Unk Ai · 8:12 · listed, not watched</p><h2>1. Omarchy, a Linux desk for agents</h2><p>A free Linux desktop, Arch plus a tiling window manager, built so coding agents sit in the menu. Chapters on the public page name Pi Agent, OpenRouter, Hyprland, and about 3,000 plugins. Not a model. Skip until the note-and-draft loop works.</p><p><a href="https://www.youtube.com/watch?v=Lj30AlEDi1M">Open the source</a></p></article>
-<article id="v2" class="card"><p class="muted">Kevin Unk Ai · 11:37 · listed, not watched</p><h2>2. Jarvis phone app</h2><p>A phone screen that talks to a Hermes agent already running on a laptop or a rented server. The public page says it can be local or a VPS. Useless until that agent exists. The $10k dashboard line is his pitch.</p><p><a href="https://www.youtube.com/watch?v=RhkB4-ZE29g">Open the source</a></p></article>
-<article id="v3" class="card"><p class="muted">Kevin Unk Ai · 1:21:13 · listed, not watched</p><h2>3. Five projects, one system</h2><p>The long tour. Title names a GPU VPS, local AI, Hermes, Claude Code, and a dashboard. This is the one to read first. Claude Code still needs a login. The rented card does not make it free.</p><p><a href="https://www.youtube.com/watch?v=xB4Vwwj0KQo">Open the source</a></p></article>
-<article id="v4" class="card"><p class="muted">Kevin Unk Ai · 7:35 · listed, not watched</p><h2>4. Make money with agents and GoHighLevel</h2><p>Title says Claude Code plus GoHighLevel for editing, posting, and sales. Treat the money claim as a title. The public listing does not show a sales log.</p><p><a href="https://www.youtube.com/watch?v=rjIJCw_1_F8">Open the source</a></p></article>
-<article id="v5" class="card"><p class="muted">Kevin Unk Ai · 46:41 · listed, not watched</p><h2>5. Hermes, eight jobs</h2><p>Title says an 8-agent dashboard on Hermes Desktop with Minimax M3. The useful idea is one job per file: revenue, content, video, posting, follow-up, offers, reliability, memory. Run it by hand before a timer.</p><p><a href="https://www.youtube.com/watch?v=puPAEyNfdhs">Open the source</a></p></article>
-<article id="v6" class="card"><p class="muted">Kevin Unk Ai · 22:58 · listed, not watched</p><h2>6. Content editing and posting engine</h2><p>Title says a Claude Code engine that edits and posts. Same pattern as Flux's drop folder. Copy the folder. Do not copy a volume claim that is not in the listing.</p><p><a href="https://www.youtube.com/watch?v=kHF70ejKTps">Open the source</a></p></article>
-<article id="v7" class="card"><p class="muted">Kevin Unk Ai · 12:22 · listed, not watched</p><h2>7. AI business operating system</h2><p>Title says Claude Code and autonomous agents as a business OS. A shorter cut of the same idea as the 81-minute tour. Use it as a map, not as proof the agents ran alone.</p><p><a href="https://www.youtube.com/watch?v=6y75oEUhdOY">Open the source</a></p></article>
-<article id="v8" class="card"><p class="muted">Kevin Unk Ai · 26:20 · listed, not watched</p><h2>8. Mission control like Jarvis</h2><p>Title names Claude Code, agents, and GoHighLevel. A dashboard over business data. The listing does not prove the data was live.</p><p><a href="https://www.youtube.com/watch?v=Kz9oJNDLexA">Open the source</a></p></article>
-<article id="v9" class="card"><p class="muted">Kevin Unk Ai · 20:16 · listed, not watched</p><h2>9. Edit 100 videos at once</h2><p>Title names Claude Code, Remotion, and Hyperframes. Remotion is code that renders video. Hyperframes is a caption tool. 100 at once is the title, not a counted result.</p><p><a href="https://www.youtube.com/watch?v=gAhfOR6XZxM">Open the source</a></p></article>
-<article id="v10" class="card"><p class="muted">Kevin Unk Ai · 31:38 · listed, not watched</p><h2>10. Hermes worked six hours</h2><p>Title says Hermes ran while he slept and beat Claude Code. The listing does not include the log. Useful only as a reminder that a night agent needs a written job and a file out.</p><p><a href="https://www.youtube.com/watch?v=j2XT2-UQMs0">Open the source</a></p></article>
-<article id="v11" class="card"><p class="muted">Kevin Unk Ai · 3:00 · listed, not watched</p><h2>11. One prompt builds a Jarvis dashboard</h2><p>A short. Public text says one prompt, a GPU VPS, an uncensored model he calls OMP, and a spec file. Comment bait for the group. Do not treat a short as a build guide.</p><p><a href="https://www.youtube.com/shorts/T9QkeFR6YLo">Open the source</a></p></article>
-<article id="v12" class="card"><p class="muted">Flux | AI Expert · 14:21 · listed, not watched</p><h2>12. 500 posts a day</h2><p>Drop folder: inbox, working, published, failed. Claude Code writes captions. A timer posts. 500 a day is his claim. Assets point at his store, not a public repo.</p><p><a href="https://www.youtube.com/watch?v=UQHjMIzM-00">Open the source</a></p></article>
-<article id="v13" class="card"><p class="muted">Flux | AI Expert · 19:17 · listed, not watched</p><h2>13. One-person business in an hour</h2><p>Public page names Claude Code, Qwen through Ollama, DeepSeek, Netlify, a Gmail app password, and Task Scheduler. The 1,000-task and 99 percent token lines were not shown.</p><p><a href="https://www.youtube.com/watch?v=TSl0RZK5Slo">Open the source</a></p></article>
-<article id="v14" class="card"><p class="muted">Flux | AI Expert · 21:13 · listed, not watched</p><h2>14. $50k website</h2><p>Public page says Claude Code for architecture and docs, and links a Google Drive asset file. $50k is the title. No invoice is in the listing.</p><p><a href="https://www.youtube.com/watch?v=FQ9ylO-G4p0">Open the source</a></p></article>
-<article id="v15" class="card"><p class="muted">Flux | AI Expert · 7:41 · listed, not watched</p><h2>15. Coca-Cola commercial with AI editing</h2><p>Title says a commercial made for almost nothing. Listing only. No tool list was opened beyond the title.</p><p><a href="https://www.youtube.com/watch?v=zlh9FcoOBQQ">Open the source</a></p></article>
-<article id="v16" class="card"><p class="muted">Flux | AI Expert · 12:09 · listed, not watched</p><h2>16. Liquid glass preset</h2><p>A DaVinci Resolve preset video. Editing craft, not an agent system. Useful later for the overlay look, not for the model.</p><p><a href="https://www.youtube.com/watch?v=HzFujbmlHuc">Open the source</a></p></article>
-<article id="v17" class="card"><p class="muted">Flux | AI Expert · 9:32 · listed, not watched</p><h2>17. 3D animation for client edits</h2><p>DaVinci Resolve client-edit lesson. Listed only. Not an AI-agent video.</p><p><a href="https://www.youtube.com/watch?v=77Sv7zDfRtA">Open the source</a></p></article>
-<article id="v18" class="card"><p class="muted">Flux | AI Expert · 11:32 · listed, not watched</p><h2>18. Eye animation in Resolve</h2><p>Retention edit in DaVinci. Listed only.</p><p><a href="https://www.youtube.com/watch?v=Mmg8osMeZQY">Open the source</a></p></article>
-<article id="v19" class="card"><p class="muted">Flux | AI Expert · 7:35 · listed, not watched</p><h2>19. Soft look color grade</h2><p>Color grade in DaVinci. Listed only.</p><p><a href="https://www.youtube.com/watch?v=id9QfTfgWIQ">Open the source</a></p></article>
-<article id="v20" class="card"><p class="muted">Flux | AI Expert · 9:48 · listed, not watched</p><h2>20. Split transition</h2><p>Fusion transition in DaVinci. Listed only.</p><p><a href="https://www.youtube.com/watch?v=lcH7OB9CG6Y">Open the source</a></p></article>
-<article id="v21" class="card"><p class="muted">Flux | AI Expert · 18:12 · listed, not watched</p><h2>21. Apple-style 3D in Resolve</h2><p>3D motion in DaVinci. Listed only.</p><p><a href="https://www.youtube.com/watch?v=rFmQvENO4zg">Open the source</a></p></article>
-<article id="v22" class="card"><p class="muted">Flux | AI Expert · 21:03 · listed, not watched</p><h2>22. Why he left After Effects</h2><p>DaVinci 20 versus After Effects. Listed only.</p><p><a href="https://www.youtube.com/watch?v=oiHyXpk-XL8">Open the source</a></p></article>
-<article id="v23" class="card"><p class="muted">ethandojo · unknown · listed, not watched</p><h2>23. NFL reel</h2><p>Caption says comment nfl for the kit. No tool named. Video was behind login. Filed as locked.</p><p><a href="https://www.instagram.com/reel/DdfagY3tNXe/">Open the source</a></p></article>
+<article id="os">
+<h2>1. Five projects, one operating system</h2>
+<p class="muted">Kevin Unk Ai · 81 minutes · published July 13, 2026 · <a href="https://www.youtube.com/watch?v=xB4Vwwj0KQo">source</a>. Lesson written from the public transcript and chapters. Not a re-upload of the video.</p>
+<p>This is the map video. He is not teaching one trick. He is showing five pieces he wants to run as one desk: a rented graphics-card computer, a local model, Hermes, Claude Code, and a dashboard.</p>
+<h3>What you are looking at</h3>
+<p>A VPS is a computer you rent by the hour. He uses SimplePod. On screen he picks a large card, an RTX Pro 6000 with 96 GB of video memory, listed around $1.39 an hour in the transcript summary, Ubuntu 24.04, and an SSH key so he can log in from his laptop. Storage stays when the machine is paused. The point of the rent is to avoid buying a several-thousand-dollar rig before the loop works.</p>
+<p>VRAM is the card's memory. It decides which model file can sit on the card. He says a roughly 30 billion parameter model, shrunk well, can be more useful than a bigger file that does not fit. Quantization is the shrink. He tells people Q6 or cleaner for tool calling, and Q4 only for chat. That matches the rule for your reports: do not use the fuzzier copy when the output has to stay on the notes.</p>
+<h3>The two programs</h3>
+<p>Claude Code is the builder in the terminal. The transcript says it still needs an Anthropic login, about $20 a month. He uses it to harden the rented server. Hermes, from Nous Research, is the night program. He names a Hermes around 30B, and later a Hermes 4.3 around 36B in FP8, started with systemd so it stays up. Ollama is the program that holds the model files. Codex is mentioned as a second coding agent. OpenCode is named as a later add, a command-line agent.</p>
+<h3>What the dashboard is</h3>
+<p>From about the 33-minute mark he shows a phone and web screen: voice, a Kanban board, memory, and file navigation. Memory is described as more than one pile: notes, a graph, relationships, and SQLite. He also shows a separate mentor app built from a question list and a fine-tune dataset. That app is his product pitch. It is not required for an incident draft.</p>
+<h3>What he says is not finished</h3>
+<p>Around 46 minutes he scores the stack about 8 out of 10 as a machine and about 6.5 to 7 as something he could sell. Missing pieces he names: mobile polish, picking the right agent, a panel that shows what happened, and written procedures. At the end he uses a six-question frame for a task: who, where, what, why, how, when.</p>
+<h3>What to copy</h3>
+<p>Rent or use one machine. One model file. One builder. A dashboard that only reads files. You sign the output. Do not copy the fine-tune of his personal dataset, and do not treat the hourly price on screen as your bill until you check SimplePod yourself.</p>
+</article>
+<article id="hermes">
+<h2>2. Eight jobs on Hermes Desktop</h2>
+<p class="muted">Kevin Unk Ai · about 46 minutes · <a href="https://www.youtube.com/watch?v=puPAEyNfdhs">source</a>. Written from the public transcript.</p>
+<p>Hermes Agent is the runtime. Hermes Desktop is the window. He points the window at Minimax M3 through OpenRouter, then asks it to propose eight jobs from his contacts and memory.</p>
+<h3>The eight jobs</h3>
+<ol>
+<li>Revenue intelligence. What is making money, written to a file.</li>
+<li>Content repurposing. One source becomes a pack.</li>
+<li>Video production. The pack becomes a clip package.</li>
+<li>Offer builder. The pack becomes an offer draft.</li>
+<li>Social routing. The pack is assigned to a platform.</li>
+<li>Lead follow-up. A person who replied gets a next step.</li>
+<li>System reliability. Did the run fail.</li>
+<li>Memory librarian. What should be kept.</li>
+</ol>
+<p>He splits them into a money loop and a support loop, and he says not to add a ninth until these eight write files you can open. He calls extra agents profile soup.</p>
+<h3>The handoff</h3>
+<p>The order he asks for is revenue, then content pack, then offer draft, then video package, then social router, then lead follow-up. Each stage writes markdown or JSON. The next stage may only read that file. He runs it by hand, then talks about a cron schedule. Hyperframes is named as the tool that turns HTML into a short video. Telegram is named as a message door. MCP is named as the plug shape for extra tools. Apify is named as a later scan tool, not as something he finishes on screen.</p>
+<h3>What to copy</h3>
+<p>Eight text files, or fewer. One writes. The next reads. You approve before a timer. For a security desk the same shape is notes in, draft out, you sign. Do not start with eight.</p>
+</article>
+<article id="flux500">
+<h2>3. The drop folder</h2>
+<p class="muted">Flux | AI Expert · 14 minutes · July 20, 2026 · <a href="https://www.youtube.com/watch?v=UQHjMIzM-00">source</a>. Written from the public chapters and transcript.</p>
+<p>One video goes in a folder. A watcher sees it. Claude Code resizes it, writes a caption, and a timer posts it. The 500-posts line is his claim. The transcript does not show a log of 500 posts.</p>
+<h3>Folders he names</h3>
+<ul>
+<li>inbox, where you drop the file</li>
+<li>posting, or in process, while it runs</li>
+<li>published, after a post succeeds</li>
+<li>failed, when it does not</li>
+<li>a raw folder for long videos that get cut into shorts</li>
+</ul>
+<h3>Setup he actually walks</h3>
+<p>Instagram goes through a Meta developer app, a business account, a tester invite, and a token with publish permissions. YouTube goes through Google Cloud, the YouTube Data API, and a desktop OAuth client. He does not walk TikTok, X, or LinkedIn token setup even though the title lists them. The timer example is a cron job at 3 p.m. Assets sit on store.fluxgrowthagency.com, not a public GitHub.</p>
+<h3>What to copy</h3>
+<p>Four folders and a human look at the first output. Do not put tokens in a screenshot. Do not post a client's clip on a timer until you have watched one full run.</p>
+</article>
+<article id="fluxbiz">
+<h2>4. One-person stack</h2>
+<p class="muted">Flux | AI Expert · about 19 minutes · <a href="https://www.youtube.com/watch?v=TSl0RZK5Slo">source</a>. Written from the public transcript.</p>
+<p>He installs Claude Code as a VS Code extension, then splits work across three models. Qwen, local through Ollama, does cheap sorting. DeepSeek, about $2 a month for the key in his telling, does middle reasoning. Claude Opus does the decisions. A loop is described as waking every two minutes. Netlify hosts a mock page. A Gmail app password sends mail. Windows Task Scheduler starts the morning run.</p>
+<p>He describes scraping local businesses, building a mock site, and emailing it. The thousand-task line, the 99 percent token cut, and the $12,000 dental estimate are said, not shown. Copy the split of cheap model versus careful model. Do not copy the cold-email volume.</p>
+</article>
+<article id="rest">
+<h2>5. Listed, transcript not pulled this pass</h2>
+<p>These were on the public lists. A full section lesson is not written until the transcript is opened. Titles only:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Lj30AlEDi1M">Omarchy</a> — Linux desktop for agents, 8 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=RhkB4-ZE29g">Jarvis phone app</a> — remote for Hermes, 11 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=rjIJCw_1_F8">GoHighLevel sales cut</a> — 7 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=kHF70ejKTps">Editing engine</a> — 23 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=6y75oEUhdOY">Business OS short tour</a> — 12 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=Kz9oJNDLexA">Mission control</a> — 26 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=gAhfOR6XZxM">Remotion and Hyperframes</a> — 20 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=j2XT2-UQMs0">Hermes overnight</a> — 31 minutes.</li>
+<li><a href="https://www.youtube.com/watch?v=FQ9ylO-G4p0">Flux $50k site</a> — 21 minutes. Drive link in the description. $50k is the title.</li>
+<li><a href="https://www.instagram.com/reel/DdfagY3tNXe/">ethandojo reel</a> — caption only, comment nfl, tools unknown.</li>
+</ul>
+<p class="muted">Channel totals of about 118 and 115 were counts, not title lists. Lessons were not invented for untitled videos.</p>
+</article>
 </main>
-<script>
-document.getElementById('q').oninput = (e) => {
-  const q = e.target.value.toLowerCase();
-  document.querySelectorAll('article').forEach(a => a.style.display = a.innerText.toLowerCase().includes(q) ? '' : 'none');
-};
-</script>
 </body>
 </html>
