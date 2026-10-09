@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dune Learning — top 10</title>
+<style>
+:root { --ink:#1a1814; --muted:#6b6560; --line:#e4dfd8; --bg:#f6f3ee; --card:#fffdf9; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:18px 16px; position:sticky; top:0; }
+h1 { font:600 1.35rem/1.2 -apple-system,sans-serif; margin:0 0 6px; }
+main { max-width:760px; margin:0 auto; padding:14px 14px 64px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:14px 0; }
+h2 { font:600 1.12rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1rem/1.3 -apple-system,sans-serif; margin:14px 0 6px; }
+p, li { margin:0 0 8px; }
+.muted { color:var(--muted); font:13px/1.4 -apple-system,sans-serif; }
+a { color:#7a4e24; }
+</style>
+</head>
+<body>
+<header>
+<p class="muted">Dune Learning · top 10 by views and use for a local model · not the 115</p>
+<h1>The ten to study</h1>
+<p>Picked for view count and for teaching a local model, a terminal agent, or a file handoff. Kevin’s long videos stay as reference. They are not in this ten because they have tens or hundreds of views, not the major counts.</p>
+</header>
+<main>
+<article>
+<h2>1. AI in the terminal</h2>
+<p class="muted">NetworkChuck · 2.2 million views · 34 minutes · <a href="https://www.youtube.com/watch?v=MsQACpcuTkU">source</a> · written guide on GitHub</p>
+<p>This is the start video. The browser hides the context window. The terminal shows it. He installs Gemini CLI first because it is free, asks it a question, and it writes a real file on the disk. That is the whole idea: the model touches files, not a chat box.</p>
+<p>His written companion splits the tools. Gemini CLI is the free start. Claude Code is the one he uses when the job has agents, and it needs a paid login. Codex is the ChatGPT terminal. OpenCode is the one that can point at a local model. Context files, named CLAUDE.md or the equivalent, are how the next session remembers the project without pasting the old chat.</p>
+<p>Copy this: one folder, one context file, one tool. Do not start with four tools.</p>
+</article>
+<article>
+<h2>2. Host all your AI locally</h2>
+<p class="muted">NetworkChuck · about 2.7 million views · <a href="https://www.youtube.com/watch?v=Wjrdr0NU4Sk">source</a></p>
+<p>The private-stack video. Ollama holds the model file. Open WebUI is the window. The model does not have to leave the machine. He also shows how to put that window on a domain later. For a security desk, stop at the local window. Do not put incident notes on a public domain.</p>
+</article>
+<article>
+<h2>3. Run your own AI, private</h2>
+<p class="muted">NetworkChuck · about 2.6 million views · <a href="https://www.youtube.com/watch?v=WxYC9-hBM_g">source</a></p>
+<p>Same lesson, shorter frame. A local model is a file. The runtime loads it. The chat stays on your box. This is the one to watch before you pull a 27B Qwen. Two 8 GB cards do not automatically become one pool. Measure with nvidia-smi first.</p>
+</article>
+<article>
+<h2>4. Claude Code, beginner tutorial</h2>
+<p class="muted">Tech With Tim · about 1.7 million views · 36 minutes · <a href="https://www.youtube.com/watch?v=ntDIxaeo3Wg">source</a></p>
+<p>The high-view install lesson. Claude Code lives in the terminal or in VS Code. It reads the folder, writes files, and can call subagents. A CLAUDE.md file at the root is the standing order. For the incident skill, that file says: notes in, draft out, missing stays missing, you sign it.</p>
+</article>
+<article>
+<h2>5. Ollama in 15 minutes</h2>
+<p class="muted">Tech With Tim · about 1.2 million views · <a href="https://www.youtube.com/watch?v=UtSSMs6ObqY">source</a></p>
+<p>The local-runtime lesson. Install Ollama. Pull a small model first. Run one prompt. Record the tag and the context size. Only then try a larger Qwen. Q4 is the smaller, fuzzier copy. Q6 is cleaner and may not fit an 8 GB card without spilling to system RAM.</p>
+</article>
+<article>
+<h2>6. Claude Code best practices</h2>
+<p class="muted">Anthropic · about 576,000 views · 26 minutes · <a href="https://www.youtube.com/watch?v=gv0WHhKelSE">source</a></p>
+<p>The official cut. Plan before it edits. Keep the context file short. Give it a folder, not your whole disk. Review the diff. That is the human gate. Their video will not cover an uncensored local model. Use it for the harness, not for the model file.</p>
+</article>
+<article>
+<h2>7. One-person stack</h2>
+<p class="muted">Flux | AI Expert · about 8,600 views · 19 minutes · <a href="https://www.youtube.com/watch?v=TSl0RZK5Slo">source</a> · transcript read</p>
+<p>Highest-view Flux lesson that matches the stack. Qwen through Ollama does the cheap sort. DeepSeek does the middle pass. Opus does the decision. A loop wakes on a timer. Netlify hosts a page. A Gmail app password sends mail. The thousand-task line and the 99 percent token cut were said, not shown. Copy the cheap-model versus careful-model split. Do not copy the cold-email volume.</p>
+</article>
+<article>
+<h2>8. $50k website</h2>
+<p class="muted">Flux | AI Expert · about 8,000 views · 21 minutes · <a href="https://www.youtube.com/watch?v=FQ9ylO-G4p0">source</a></p>
+<p>Claude Code used as the builder of a site, with a written spec before the pages. The $50k figure is the title. No invoice is on the page. The asset link is a Google Drive file, not a public repo. Copy the spec-first habit. Ignore the price.</p>
+</article>
+<article>
+<h2>9. Drop folder</h2>
+<p class="muted">Flux | AI Expert · about 2,200 views · 14 minutes · <a href="https://www.youtube.com/watch?v=UQHjMIzM-00">source</a> · transcript read</p>
+<p>Included because it is the clearest file pipeline, not because of the view count. Inbox, posting, published, failed. A watcher moves the file. Instagram needs a Meta business app and a token. YouTube needs the Data API and a desktop OAuth client. TikTok, X, and LinkedIn are in the title and not in the setup. 500 posts a day is a claim. Look at the first file before a timer posts anything.</p>
+</article>
+<article>
+<h2>10. Eight jobs</h2>
+<p class="muted">Kevin Unk Ai · 436 views · 46 minutes · <a href="https://www.youtube.com/watch?v=puPAEyNfdhs">source</a> · transcript read</p>
+<p>Low views, kept because it is the only major lesson that names the handoff in full. Eight jobs: revenue, content, video, offer, social routing, lead follow-up, reliability, memory. Money loop first, support loop second. Each writes a file. The next may only read it. He says not to add a ninth. For this desk, start with one job: the incident draft.</p>
+</article>
+<article>
+<h2>Left out on purpose</h2>
+<p>The other Kevin videos sit between 36 and 715 views. The 81-minute tour is the best map of his stack and stays in the repo as a reference, not in this ten. DaVinci color-grade videos are editing craft, not a model lesson. The NFL reel named no tool.</p>
+</article>
+</main>
+</body>
+</html>
