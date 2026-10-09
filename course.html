@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dune Learning</title>
+<style>
+:root { --bg:#100e0c; --panel:#1a1613; --ink:#f6f1e8; --muted:#cbbba8; --line:#3a322b; --gold:#e2a15c; --green:#8eae86; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.6 Georgia, serif; }
+.shell { display:grid; grid-template-columns:230px 1fr; min-height:100vh; }
+aside { background:#14110e; border-right:1px solid var(--line); padding:16px 12px; position:sticky; top:0; height:100vh; overflow:auto; }
+.brand { font:700 13px/1 -apple-system,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin:0 0 4px; }
+.sub { color:var(--muted); font:13px/1.4 -apple-system,sans-serif; margin:0 0 14px; }
+button { display:block; width:100%; text-align:left; background:transparent; color:var(--ink); border:1px solid transparent; border-radius:10px; padding:8px 10px; margin:0 0 4px; font:14px/1.2 -apple-system,sans-serif; }
+button.on { background:#2a231c; border-color:var(--line); color:var(--gold); }
+main { padding:22px 18px 70px; max-width:820px; }
+.hero { background:linear-gradient(180deg,#241c16,#1a1613); border:1px solid var(--line); border-radius:16px; padding:16px; margin-bottom:14px; }
+h1 { font:600 1.5rem/1.2 -apple-system,sans-serif; margin:0 0 6px; }
+h2 { font:600 1.2rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1rem/1.3 -apple-system,sans-serif; color:var(--gold); margin:16px 0 6px; }
+p, li { margin:0 0 10px; }
+a { color:var(--gold); }
+.meta { color:var(--muted); font:14px/1.45 -apple-system,sans-serif; }
+.pill { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:3px 8px; font:12px/1 -apple-system,sans-serif; color:var(--green); margin-right:6px; }
+[hidden] { display:none !important; }
+@media (max-width:760px) { .shell { grid-template-columns:1fr; } aside { position:relative; height:auto; } }
+</style>
+</head>
+<body>
+<div class="shell">
+<aside>
+<p class="brand">Dune Learning</p>
+<p class="sub">Shane · security desk · 15-minute Bitcoin</p>
+<nav id="nav"></nav>
+</aside>
+<main id="main"></main>
+</div>
+<script>
+const L = [
+["Home","🏠 Home",`<div class="hero"><h1>The course, in one place</h1><p class="meta">Guides, the 15-minute desk, and the live board. Built from public transcripts and project pages. A video that never returned a title is not invented.</p></div>
+<p>Pick a lesson on the left. Each one has the original link, what the person actually did, the take, and the one change it makes on your desk.</p>
+<p>Your desk is two jobs. An officer note becomes a draft you sign. A 15-minute Bitcoin call becomes a row you write only after the candle closes. Nothing sends itself.</p>`],
+["Terminal","🎬 Terminal",`<h2>The terminal video</h2><p class="meta"><span class="pill">NetworkChuck</span> 2.2 million views · 34 minutes</p><p><a href="https://www.youtube.com/watch?v=MsQACpcuTkU">Open the video</a> · <a href="https://github.com/theNetworkChuck/ai-in-the-terminal">Written guide</a></p>
+<h3>What it is</h3><p>He moves the model out of the website chat and into a folder. The website cannot see a file unless you paste it. The terminal can. Once the model writes a file, the chat stops being the product.</p>
+<h3>The five segments</h3><p>Gemini first, because it is free. He makes a folder, asks a small question, and lets it write a file. Then gemini.md, so the next session does not need the old chat. Claude Code next, paid, about $20 a month in his telling. Slash context shows the window. Slash agents makes a worker with a fresh window. He opens Gemini, Claude, and Codex in the same folder. They share files, not a chat. A critic scores the work. OpenCode can point at a model on your machine. That is the door for Qwen.</p>
+<h3>Take</h3><p>The video is an install order, not a personality. Folder, one write, one context file. The skip-permissions flag does not belong on a client note.</p>
+<h3>What you learn</h3><p>One incident folder. The standing note says the model may only use the officer write-up, must say missing if a fact is absent, and must not mark the draft approved.</p>`],
+["Local","🖥️ Local model",`<h2>Model on the machine</h2><p class="meta"><span class="pill">NetworkChuck</span> about 2.7 million · <a href="https://www.youtube.com/watch?v=Wjrdr0NU4Sk">video</a></p>
+<p>Ollama holds the model file. A window talks to it. The chat looks normal. The note did not leave the box. He also shows a public domain. Skip that. A client note does not go through a door you do not control.</p>
+<h3>Take</h3><p>Private is not the same as true. A local guess is still a guess.</p>
+<h3>What you learn</h3><p>Pull a small model. Write down the tag. Your 2080s are 8 GB each. They do not add up to 16 by themselves. The 15-minute Ollama film is the install: <a href="https://www.youtube.com/watch?v=UtSSMs6ObqY">Ollama in 15 minutes</a>. Q4 is smaller and fuzzier. Q6 is cleaner. Reports want the cleaner copy if it fits.</p>`],
+["Builder","🛠️ Builder",`<h2>Claude Code and the four-part agent</h2><p class="meta"><a href="https://www.youtube.com/watch?v=ntDIxaeo3Wg">Tim, 1.7 million</a> · <a href="https://www.youtube.com/watch?v=gv0WHhKelSE">Anthropic rules</a> · <a href="https://www.youtube.com/watch?v=i5kwX7jeWL8">Cole, 30 minutes</a></p>
+<p>Claude Code reads the folder you opened. CLAUDE.md is the standing order. Anthropic says plan, keep the order short, one folder, you read the diff. Cole says an agent is a model, a prompt, one tool, and a trace. People fail by adding memory and Docker first.</p>
+<h3>Take</h3><p>The tool is read this file, write that file. The trace is headings, a second file, and pending at the bottom.</p>
+<h3>What you learn</h3><p>Open the builder on the incident folder only. Do not grant the disk. Do not auto-approve.</p>`],
+["Flux","📁 Flux",`<h2>Cheap pass, then four folders</h2><p class="meta"><a href="https://www.youtube.com/watch?v=TSl0RZK5Slo">One-person stack</a> · <a href="https://www.youtube.com/watch?v=UQHjMIzM-00">Drop folder</a> · transcripts read</p>
+<p>Qwen sorts. DeepSeek does the middle pass. Opus decides. The 99 percent token cut was said, not measured. The drop folder is inbox, posting, published, failed. Instagram needs a Meta business token. YouTube needs a Google login. The other platforms are in the title and not in the setup. 500 posts is the title, not a log.</p>
+<h3>Take</h3><p>Copy the split and the folders. Do not copy the email blast or the volume claim.</p>
+<h3>What you learn</h3><p>The local model lists what is in the note and what is missing. You write the sentences. Folders only after an approved draft, and only for a clip. No timer until you have read one run.</p>`],
+["Kevin","🌙 Kevin",`<h2>The tour and the eight jobs</h2><p class="meta"><a href="https://www.youtube.com/watch?v=xB4Vwwj0KQo">81-minute tour</a> · <a href="https://www.youtube.com/watch?v=puPAEyNfdhs">Eight jobs</a> · both transcripts read</p>
+<p>He rents a card, logs in with a key, and uses Claude Code, which still needs its own login. Ollama holds the model. Hermes stays up. Q6 for tools, Q4 for chat. Eight jobs write eight files: money, content, video, offer, routing, follow-up, reliability, memory. He says not to add a ninth.</p>
+<h3>Take</h3><p>The handoff is the lesson. The group price and the shorts are the ad.</p>
+<h3>What you learn</h3><p>Your eight is one. Note in. Draft out. You sign it.</p>`],
+["Reels","📲 Reels",`<h2>The reels that had a method</h2>
+<p><a href="https://www.instagram.com/reel/DXW_055D7GF/">Shannon</a> matches <a href="https://github.com/KeygraphHQ/shannon">Keygraph's tester</a>. Each stage writes a file. Copy the stages. Attack steps are not here. Only an app you own.</p>
+<p><a href="https://www.instagram.com/reel/DcDMcj5uQiW/">Uncensored reel</a> is a comment-word funnel. No product name. Two local files instead. Base Qwen for the client draft.</p>
+<p><a href="https://www.instagram.com/reel/DcamdiWoqzB/">Stadium</a> is one page, Three.js seats, fake prices. <a href="https://github.com/thebuggeddev/football-stadium">Repo</a>. Your overlay is name, score, note, approved before OBS.</p>
+<p><a href="https://www.instagram.com/reel/DdJ8HSEqtwB/">Ruflo</a> is <a href="https://github.com/ruvnet/ruflo">ruvnet/ruflo</a>. An orchestrator. You still start with one job. <a href="https://www.instagram.com/reel/Dd7nAyYItIp/">Mimic</a> is <a href="https://github.com/littledivy/mimic">littledivy/mimic</a>. It writes a Python client from a session you already have. Not for an app you do not own.</p>
+<h3>Take</h3><p>Camofox stays out. Empty reels stay out. A caption with no method is not a lesson.</p>`],
+["Bitcoin","₿ 15-minute",`<h2>The gate in front of the model</h2><p class="meta">Teachers, not audited funds. A 96 percent title was left out.</p>
+<p>The model may name the next 15 minutes. It does not fire on every candle. Higher window agrees. Candle has closed. Risk is written down.</p>
+<p><a href="https://www.youtube.com/@BenjaminCowen">Cowen</a> is the risk number, 0 to 1. High risk and a down weekly means a long stays a note.</p>
+<p><a href="https://www.youtube.com/watch?v=dymjubYYr_g">VWAP video</a>. Close back through the session average, 20-period average on that side, RSI through 50. Your reset is 00:00 UTC.</p>
+<p><a href="https://www.youtube.com/watch?v=xvCExiVaCeY">Breakout video</a>. A wick is not a fill. The candle closes beyond the prior swing.</p>
+<p><a href="https://www.youtube.com/watch?v=PGK_wp_H_8U">Sweep video</a>. Same-day low taken, candle closes back above it and closes green. Otherwise it is the middle, and the middle loses.</p>
+<h3>Take</h3><p>Most windows should be no-trade. A model that fires every 15 minutes is a fee machine.</p>
+<h3>What you learn</h3><p>Thirty closed rows. Keep the gate that cuts red and leaves green.</p>`],
+["Live","🟢 Live board",`<h2>The row you write</h2>
+<p>Candle close, UTC. Model call. Risk zone. VWAP side. Sweep yes or no. Closed beyond the swing yes or no. Taken or skipped. Result after a pretend fee. One sentence on why it was skipped. Do not fill it while the candle is open.</p>
+<h3>AI build rule</h3><p>One folder. Small model lists the gaps. You write the sentences. No timer until one full run has been read.</p>
+<h3>Defense</h3><p>Brute force is a flood of guesses. The firm work is the other side: a long secret, a lockout, a failure log, no keys in git. Guessing steps are not on this course. You do not run that against a site you do not own.</p>
+<h3>Grok</h3><p>Spec first. Second file. If a source was not opened, the file says so. The next build is the 30-window log.</p>`]
+];
+const nav = document.getElementById("nav");
+const main = document.getElementById("main");
+L.forEach((item,i)=>{
+  const b = document.createElement("button");
+  b.textContent = item[1];
+  if(i===0) b.className = "on";
+  b.onclick = ()=>{ nav.querySelectorAll("button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); main.querySelectorAll("section").forEach(s=>s.hidden = s.dataset.i!==String(i)); };
+  nav.appendChild(b);
+  const s = document.createElement("section");
+  s.dataset.i = i; s.hidden = i!==0; s.innerHTML = item[2];
+  main.appendChild(s);
+});
+</script>
+</body>
+</html>
