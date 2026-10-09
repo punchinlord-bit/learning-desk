@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live desk</title>
+<style>
+:root { --bg:#f3eee6; --ink:#1c1612; --muted:#5e564e; --line:#e0d5c6; --card:#fffdf8; --accent:#8a4b24; }
+body { margin:0; background:var(--bg); color:var(--ink); font:18px/1.65 Georgia, serif; }
+header { background:var(--card); border-bottom:1px solid var(--line); padding:14px; position:sticky; top:0; }
+.mark { font:600 12px/1 -apple-system,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 6px; }
+h1 { font:600 1.25rem/1.2 -apple-system,sans-serif; margin:0 0 8px; }
+nav { display:flex; gap:6px; overflow:auto; }
+nav button { border:1px solid var(--line); background:#f6f0e6; border-radius:999px; padding:8px 10px; font:13px/1.2 -apple-system,sans-serif; white-space:nowrap; }
+nav button.on { background:var(--ink); color:#fff; }
+main { max-width:740px; margin:0 auto; padding:16px 14px 80px; }
+article { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
+h2 { font:600 1.25rem/1.25 -apple-system,sans-serif; margin:0 0 8px; }
+h3 { font:600 1.02rem/1.3 -apple-system,sans-serif; margin:16px 0 6px; }
+p, li { margin:0 0 10px; }
+a { color:var(--accent); }
+.meta { color:var(--muted); font:14px/1.4 -apple-system,sans-serif; }
+[hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<header>
+<p class="mark">Dune Learning</p>
+<h1>Live desk</h1>
+<nav id="nav"></nav>
+</header>
+<main id="main"></main>
+<script>
+const lessons = [
+["15-min live", `<h2>15-minute live board</h2>
+<p class="meta">This page does not stream a price. A live board is a row you write when a candle closes. The lesson page is <a href="btc15.html">the 15-minute guide</a>.</p>
+<h3>The row</h3>
+<p>Candle close, UTC. Model call, up, down, or no call. Weekly risk zone, high or low, if you looked. Session VWAP, above or below. Same-day sweep, yes or no. Closed beyond the prior swing, yes or no. Taken or skipped. Result after a pretend fee. One sentence on why it was skipped.</p>
+<h3>The tip</h3>
+<p>Do not update the row while the candle is open. A wick is not a close. If the model and the VWAP disagree, the row says skipped. Thirty closed rows before you change the gate.</p>`],
+["AI tips", `<h2>AI desk, the rules that keep a build honest</h2>
+<p class="meta">These sit on the full guides, not instead of them. <a href="index.html?v=guides3">Guide library</a>.</p>
+<h3>One folder</h3>
+<p>The model sees the incident folder or the 15-minute log. It does not see the whole computer. A standing-order file says what it may read and that a missing fact stays missing.</p>
+<h3>Cheap model first</h3>
+<p>A small local Qwen lists what is present and what is missing. A stronger model, or you, writes the sentences. They hand off a file. They do not chat.</p>
+<h3>No timer yet</h3>
+<p>A watcher on a folder is fine after you have read one full run. A cron job that posts or emails is not. Client notes do not go to a rented chat.</p>
+<h3>What not to add</h3>
+<p>Camofox stays out. Sixty-agent swarms stay out. A comment-word reel with no repo is not a dependency.</p>`],
+["Defense", `<h2>Brute force, the defense note</h2>
+<p class="meta">This is not an attack guide. Password guessing steps are not on this desk.</p>
+<h3>What it is</h3>
+<p>Brute force means trying many passwords or keys until one works. On a login it is a flood of guesses. On a key it is the same idea against a secret. Sites slow it with a lockout, a captcha, a long secret, and a count of failures.</p>
+<h3>What you do at the firm</h3>
+<p>You do not run it against a site you do not own. For a client who asked in writing, the useful work is the other side. Long passwords. A lock after a few bad tries. No keys in a screenshot or a git repo. Logs that show a burst of failures. Shannon, if you use it, stays on an app you own and stays at the file-handoff. The attack steps stay in their repo, not here.</p>`],
+["Grok builds", `<h2>How a Grok build should land</h2>
+<p class="meta">Same shape as the incident skill. A spec, a file, you read it.</p>
+<h3>The spec</h3>
+<p>Before a page or a script exists, write what it must do. For this desk that sentence is: a closed 15-minute candle, four gates, a row in the log. A page that only restates a video title is a failed build. You already saw that.</p>
+<h3>The handoff</h3>
+<p>Grok writes a second file. The note or the spec stays untouched. If a source was not opened, the file says so. Links stay on the lesson. A claim with no source line does not ship.</p>
+<h3>What to ask for next</h3>
+<p>A log table you can fill by hand for 30 windows. Not another summary of a channel. After those 30 rows, the next build is the gate that actually cut the red ones.</p>`]
+];
+const nav = document.getElementById("nav");
+const main = document.getElementById("main");
+lessons.forEach((item, i) => {
+  const b = document.createElement("button");
+  b.textContent = item[0];
+  if (i===0) b.className = "on";
+  b.onclick = () => {
+    nav.querySelectorAll("button").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    main.querySelectorAll("article").forEach(a => a.hidden = a.dataset.i !== String(i));
+  };
+  nav.appendChild(b);
+  const a = document.createElement("article");
+  a.dataset.i = i;
+  a.hidden = i!==0;
+  a.innerHTML = item[1];
+  main.appendChild(a);
+});
+</script>
+</body>
+</html>
