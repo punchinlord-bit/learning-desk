@@ -5,149 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dune Learning</title>
 <style>
-  :root { --ink:#1a1814; --muted:#6b6560; --line:#e4dfd8; --bg:#f6f3ee; --card:#fffdf9; --accent:#8a5a2b; }
-  * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 "Iowan Old Style", Georgia, serif; }
-  .top { background:var(--card); border-bottom:1px solid var(--line); padding:22px 20px 14px; }
-  .mark { font:600 12px/1 -apple-system,sans-serif; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 6px; }
-  h1 { font:600 1.8rem/1.15 -apple-system,sans-serif; margin:0 0 8px; }
-  .lead { margin:0; max-width:680px; color:#3f3a34; }
-  nav { display:flex; gap:8px; overflow:auto; padding:10px 16px; background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:2; }
-  nav button { font:14px/1 -apple-system,sans-serif; border:1px solid var(--line); background:#f3efe8; color:var(--ink); border-radius:999px; padding:8px 12px; }
-  nav button.on { background:var(--ink); color:#fff; border-color:var(--ink); }
-  main { max-width:820px; margin:0 auto; padding:16px 14px 56px; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  @media (max-width:640px) { .grid { grid-template-columns:1fr; } }
-  .card, section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:12px 0; }
-  h2 { font:600 1.15rem/1.3 -apple-system,sans-serif; margin:0 0 8px; }
-  h3 { font:600 1rem/1.3 -apple-system,sans-serif; margin:14px 0 6px; }
-  p, li { margin:0 0 8px; }
-  .muted { color:var(--muted); font:14px/1.4 -apple-system,sans-serif; }
-  a { color:#7a4e24; }
-  table { width:100%; border-collapse:collapse; font:14px/1.4 -apple-system,sans-serif; }
-  th, td { text-align:left; border-bottom:1px solid var(--line); padding:8px 4px; vertical-align:top; }
-  .pill { display:inline-block; font:12px/1 -apple-system,sans-serif; border-radius:999px; padding:4px 8px; background:#f3efe8; }
-  input { width:100%; border:1px solid var(--line); border-radius:10px; padding:10px 12px; font:15px -apple-system,sans-serif; background:#fff; }
-  [hidden] { display:none !important; }
+:root { --bg:#12100e; --panel:#1b1714; --ink:#f6f1e8; --muted:#c4b6a6; --line:#3d342c; --accent:#e2a15c; --green:#8eae86; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 Georgia, serif; }
+.top { padding:16px 16px 8px; border-bottom:1px solid var(--line); background:#16130f; position:sticky; top:0; z-index:2; }
+.mark { font:600 11px/1 -apple-system,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin:0 0 6px; }
+h1 { font:600 1.3rem/1.2 -apple-system,sans-serif; margin:0 0 10px; }
+.tabs { display:flex; gap:6px; overflow:auto; padding-bottom:8px; }
+.tabs button { background:#241f1a; color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:8px 12px; font:13px/1 -apple-system,sans-serif; white-space:nowrap; }
+.tabs button.on { background:var(--accent); color:#1a120c; border-color:var(--accent); }
+main { max-width:860px; margin:0 auto; padding:14px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+@media (max-width:700px) { .grid { grid-template-columns:1fr; } }
+article { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+.n { color:var(--green); font:12px/1 -apple-system,sans-serif; letter-spacing:.06em; }
+h2 { font:600 1rem/1.3 -apple-system,sans-serif; margin:4px 0 6px; }
+p { margin:0; color:var(--muted); }
 </style>
 </head>
 <body>
 <div class="top">
-  <p class="mark">Dune Learning</p>
-  <h1>The directory</h1>
-  <p class="lead">You send Instagram reels, YouTube videos, and pages. Each one is checked, then filed into a place you can study. Inbox, guide, skill, or limits. That file is the database.</p>
+<p class="mark">Dune Learning</p>
+<h1>Sources</h1>
+<div class="tabs" id="tabs"></div>
 </div>
-<nav>
-  <button class="on" data-tab="home">Home</button>
-  <button data-tab="library">Library</button>
-  <button data-tab="kevin">Kevin</button>
-  <button data-tab="flux">Flux</button>
-  <button data-tab="reel">Reel</button>
-  <button data-tab="skill">Skill</button>
-</nav>
-<main>
-<section id="home">
-  <div class="grid">
-    <div class="card"><h2>Inbox</h2><p>The raw link and the date. Nothing is taught from here.</p><p class="muted">3 entries</p></div>
-    <div class="card"><h2>Guide</h2><p>The reading section. What it is, what to copy, what was not shown.</p><p class="muted">3 sources filed</p></div>
-    <div class="card"><h2>Skill</h2><p>Only when a link has a job you can repeat. Most links never become one.</p><p class="muted">1 skill: incident draft</p></div>
-    <div class="card"><h2>Limits</h2><p>Locked reels, unpaid classrooms, and claims that were not on the page.</p><p class="muted">Marked, not guessed</p></div>
-  </div>
-  <div class="card">
-    <h2>How a link moves</h2>
-    <ol>
-      <li>You send the reel or video.</li>
-      <li>It is logged in the inbox.</li>
-      <li>The public page is checked. If it is locked, the entry says locked.</li>
-      <li>A reading section is added here. Tools are not invented.</li>
-      <li>A skill is added only if the link actually contains a repeatable job.</li>
-    </ol>
-    <p class="muted">Repo: <a href="https://github.com/punchinlord-bit/learning-desk">github.com/punchinlord-bit/learning-desk</a>. This center is separate from the sports desk.</p>
-  </div>
-</section>
-
-<section id="library" hidden>
-  <h2>Library</h2>
-  <input id="q" placeholder="Search the library" aria-label="Search">
-  <table>
-    <tr><th>Source</th><th>Status</th><th>Filed in</th></tr>
-    <tr data-k="kevin unk hermes claude"><td>Kevin Unk Ai</td><td><span class="pill">Long videos checked</span></td><td>Guide</td></tr>
-    <tr data-k="flux drop folder posts"><td>Flux | AI Expert</td><td><span class="pill">Two videos opened</span></td><td>Guide</td></tr>
-    <tr data-k="ethandojo nfl reel instagram"><td>ethandojo reel</td><td><span class="pill">Caption only</span></td><td>Limits</td></tr>
-  </table>
-  <p class="muted">Full channel dumps were not completed. Paid classrooms were not opened.</p>
-</section>
-
-<section id="kevin" hidden>
-  <h2>Kevin Unk</h2>
-  <p class="muted">About 118 public videos. Most are short ads. Group price on his site: $97 a month. Paid classroom not opened.</p>
-  <ol>
-    <li>Notes or clips start on the phone.</li>
-    <li>Claude Code is the builder in the terminal. It still needs a login.</li>
-    <li>Hermes is the night-shift program. Memory and a to-do list.</li>
-    <li>The model runs on a rented card or his own machine.</li>
-    <li>The dashboard is only a window onto the files.</li>
-  </ol>
-  <table>
-    <tr><th>Video</th><th>What it is</th></tr>
-    <tr><td><a href="https://www.youtube.com/watch?v=xB4Vwwj0KQo">Five projects</a><br>81 min</td><td>Rented GPU, terminal login, Claude Code, a local model next to a Qwen around 27B. Q6 is the cleaner shrink. Q4 is smaller and fuzzier.</td></tr>
-    <tr><td><a href="https://www.youtube.com/watch?v=puPAEyNfdhs">Eight jobs</a><br>46 min</td><td>Revenue, content, video, posting, follow-up, offers, reliability, memory. One writes a file. The next may only read it.</td></tr>
-    <tr><td><a href="https://www.youtube.com/watch?v=Lj30AlEDi1M">Omarchy</a><br>8 min</td><td>A Linux desktop. Not a model. Skip for now.</td></tr>
-    <tr><td><a href="https://www.youtube.com/watch?v=RhkB4-ZE29g">Jarvis</a><br>11 min</td><td>A phone remote for an agent that already runs at home.</td></tr>
-  </table>
-  <h3>Copy</h3>
-  <p>The file handoff, and the human check. He still watches the first seconds of a clip.</p>
-  <h3>Ignore</h3>
-  <p>The shorts. Same pitch, prices that move. Do not budget off a short.</p>
-</section>
-
-<section id="flux" hidden>
-  <h2>Flux | AI Expert</h2>
-  <p class="muted">About 1.7K subscribers. About 115 videos. Two opened far enough to teach from.</p>
-  <p><a href="https://www.youtube.com/watch?v=UQHjMIzM-00">Drop-folder video</a>, 14 minutes. One clip goes into inbox, then working, published, or failed. A watcher sees the file. Claude Code writes the caption. A timer posts it. “500 posts a day” is his claim. No log was on the page. Files sit on his store, not a public repo.</p>
-  <p><a href="https://www.youtube.com/watch?v=TSl0RZK5Slo">One-person setup</a>, about 19 minutes. Names Claude Code, Qwen through Ollama, DeepSeek, Netlify, a Gmail app password. The thousand-task claim was not shown.</p>
-  <h3>Copy</h3>
-  <p>Four folders. One file in. You look at the first result before anything posts.</p>
-</section>
-
-<section id="reel" hidden>
-  <h2>ethandojo reel</h2>
-  <p class="muted">September 20. <a href="https://www.instagram.com/reel/DdfagY3tNXe/">Reel</a>. Status: caption only.</p>
-  <p>The caption says comment “nfl” and he will send the kit. No software name is in the caption. The video was behind a login wall.</p>
-  <h3>Overlay you can learn without the DM</h3>
-  <ol>
-    <li>OBS is the broadcast program.</li>
-    <li>A browser source is a web page on the scene.</li>
-    <li>The page has fields: name, score, note.</li>
-    <li>A text file fills those fields.</li>
-    <li>You read the file before it goes live.</li>
-  </ol>
-</section>
-
-<section id="skill" hidden>
-  <h2>Incident draft</h2>
-  <p>The first skill. An officer writes what they saw. The model may use only that note.</p>
-  <ul>
-    <li>Missing site or time stays [MISSING].</li>
-    <li>No invented names, badge numbers, or threat scores.</li>
-    <li>The draft is a second file. The note stays untouched.</li>
-    <li>The bottom line stays pending. You sign it.</li>
-  </ul>
-  <p class="muted">Fifteen fake cases passed as structure only. A model did not write them. A 27B model on two 2080s was not measured.</p>
-</section>
-</main>
+<main id="main"></main>
 <script>
-document.querySelectorAll("nav button").forEach(b => b.addEventListener("click", () => {
-  document.querySelectorAll("nav button").forEach(x => x.classList.remove("on"));
-  b.classList.add("on");
-  document.querySelectorAll("main section").forEach(s => s.hidden = s.id !== b.dataset.tab);
-}));
-document.getElementById("q").addEventListener("input", (e) => {
-  const q = e.target.value.toLowerCase();
-  document.querySelectorAll("#library tr[data-k]").forEach(tr => {
-    tr.hidden = q && !tr.dataset.k.includes(q);
-  });
+const sources = {"NetworkChuck": [["The folder is the product", "The browser cannot see your files unless you paste them. The terminal can. Make one folder before you install anything."], ["Gemini writes a file", "Free start. Install the Gemini command, open the folder, ask a small question, and let it write a file. That is the proof the tool can touch the disk."], ["The context file", "gemini.md is the standing note. The next session reads it so you do not paste the old chat. Your version says: note in, draft out, missing stays missing."], ["Claude Code is the paid builder", "About $20 a month in his telling. It reads the same folder. Use it after the context file exists, not before."], ["Agents get a fresh window", "A worker with its own context does not bloat the main chat. You do not need one yet. The idea is the split, not the swarm."], ["Three tools, one folder", "Gemini, Claude, and Codex can sit in the same directory. They share files, not a conversation."], ["A critic scores the work", "A second pass that only reviews. For you, that pass is the validator plus your signature."], ["Git is the history", "A closer writes a summary and commits. Your notes and drafts stay as separate files so you can see what changed."], ["OpenCode points at a local model", "This is the door for Qwen. Config is a json file. Claude login is optional."], ["Private window stops at the machine", "The local-AI videos put Ollama and a chat window on your box. Do not put incident notes on a public domain."]], "Cole Medin": [["Four parts only", "Model, prompt, one tool, a trace. Add nothing else until those four work."], ["Build the small agent live", "His 29-minute video builds one agent on screen. Copy the size, not the stack around it."], ["Pick the model second", "OpenRouter is how he swaps models. You swap by file: small Qwen first, larger file only if it fits."], ["The prompt is the skill", "The system prompt is the job description. Yours is the incident skill."], ["A tool is a permission", "Read this file, write that file. Not a personality, and not a browser."], ["Security before memory", "He puts a guard before long memory. Your guard is: no invented badge, time, or score."], ["A trace shows the run", "Langfuse is his trace. Your trace is the validator result: headings, separate file, pending."], ["Long memory can wait", "Mem0 is named for memory across days. A file on disk is enough for the first loop."], ["Docker is last", "He containers the agent after it works. You do not need a container to draft a note."], ["Do not overbuild", "The companion video, 173,000 views, is the same warning. The people who ship keep the agent small."]], "IndyDevDan": [["A standing order file", "CLAUDE.md is the rule the tool reads every run. Keep it short."], ["One skill, one job", "A skill is a reusable command. The incident skill is the only one."], ["A worktree is a second copy", "Two workers do not edit the same folder. You do not have a second worker."], ["Plan before edits", "He treats the harness as programmable. You write the output shape before the model runs."], ["Review is the product", "The diff is what you read. A clean sentence is not approval."], ["Subagents are optional", "A subagent is a fresh context. Skip until the single file handoff is boring."], ["Commands stay in the skill", "If a step is not in the skill file, the model does not get to invent it."], ["No whole-disk grant", "The tool sees one folder. Client notes live there. Nothing else."], ["Version the skill", "When the rule changes, the file changes. The old draft stays."], ["Specific videos were not opened", "This page is the method. A command is not his until that video is opened."]], "Mark Gadala": [["Ollama holds the file", "The model is a file. Ollama loads it. Hermes is the window, not the model."], ["Match the file to the card", "He names a 27B for 24 GB and a 2B for 4 GB. Your 2080 is 8 GB."], ["Two cards are not one pool", "Do not add the two 8 GB cards in your head. Measure later."], ["Uncensored is internal", "A looser quant can brainstorm wording. The client draft uses the base instruct file."], ["A comment doubted the big file", "Someone on the page said the 27B line is not realistic on a weak PC. Believe that until you run it."], ["Hermes launches from Ollama", "The night window points at the local server. It still needs a job file."], ["Small model is the test", "Pull the 2B or a small Qwen. One prompt. Write down the tag."], ["Yourunai is his written path", "The workflows live on his site. The reel is not the guide."], ["Transcript was not fetched", "This page is the public description. Steps he did not print are not filled in."], ["Do not download a random quant", "Read the model card and the publisher before a file hits the box."]], "AICodeKing": [["He picks files, not desks", "Use the channel to choose a GGUF. Do not use it to design the firm."], ["Read the card", "Parameter count, quant, license, tool-calling note. Title is not a spec."], ["26B wants about 24 GB", "In his telling. That is not an 8 GB 2080."], ["GGUF is the file format", "llama.cpp and Ollama can load it. The format is not the quality."], ["Q4 versus Q6", "Q4 is smaller and fuzzier. Q6 is cleaner and heavier. Reports want the cleaner copy if it fits."], ["Hermes can point at a local server", "He pairs models with Hermes, OpenCode, and OpenClaw. The pair is a setting, not a new brain."], ["Apple and PC are different builds", "MLX is the Apple path. GGUF is the path for the ROG box."], ["A benchmark is his machine", "Do not copy his tokens per second onto your card."], ["Uncensored is a community quant", "Publisher and license still matter. A loose file is not automatically safe."], ["Pull small, then stop", "One successful small run beats a 27B file that thrashes."]], "Tech With Tim": [["Install the runtime", "Ollama first. The model file second. The chat window third."], ["One prompt", "A harmless sentence. Confirm the tag that answered."], ["Write the settings down", "Model tag, context length, quant. The next run uses the same line."], ["Context length costs memory", "A longer window can push a fit model off the card."], ["Spill to RAM is allowed", "Speed will drop. An unmeasured drop is not a result."], ["Claude Code reads the open folder", "Do not open it on your whole disk."], ["The context file is the standing order", "Same rule as Chuck. One file, one job."], ["Beginner video is the install", "1.7 million views. Use it to get the tool running, not to design agents."], ["Ollama video is the model", "1.2 million views. Small file first."], ["Then the fake note", "Only after both tools answer. Note in, draft out."]], "Anthropic": [["Plan before it edits", "The official video says think, then change files."], ["Short context file", "A long standing order gets ignored. Yours is a few rules."], ["One folder", "The grant matches the job. Incident notes only."], ["Review the diff", "You read what changed. The tool does not ship it."], ["No auto-approve", "Pending stays pending."], ["Subagents are a later chapter", "Not lesson one."], ["Official means harness", "They will not pick your local Qwen. Pair this with Tim."], ["Temperature is not truth", "0.2 is a setting. It does not make a sentence sourced."], ["Headings are not facts", "A validator can check shape. You check the claims."], ["The human is the release", "Nothing emails, posts, or marks approved."]], "Flux": [["Cheap model sorts", "Qwen lists what is in the note and what is missing."], ["Stronger model decides", "DeepSeek or Opus, in his telling, only after the list exists."], ["Said is not shown", "1,000 tasks and 99 percent fewer tokens were claims."], ["Four folders", "Inbox, posting, published, failed. A watcher moves the file."], ["You watch the first run", "No timer until one file has gone through and you have read it."], ["Instagram needs a business token", "Meta app, tester invite, publish permission. Not in a screenshot."], ["YouTube needs OAuth", "Data API, desktop client. Other platforms were named and not set up."], ["Assets are on his store", "Not a public repo. Do not assume the files are free to lift."], ["The $50k title is a title", "Spec first is the lesson. The price is not."], ["A clip comes from an approved draft", "The drop folder does not get a new story."]], "Kevin Unk": [["Rent only if the box fails", "SimplePod was his example. Check the live price. Do not budget off the video."], ["SSH is the login", "A key, not a password in a caption."], ["Claude Code still needs a login", "The rented card does not make Anthropic free."], ["Q6 for tools, Q4 for chat", "His line. Reports are tools. Use the cleaner copy if it fits."], ["Hermes is the night process", "It stays up. It still needs a job file."], ["Eight jobs, eight files", "Revenue, content, video, offer, routing, follow-up, reliability, memory."], ["Do not add a ninth", "He called extra agents profile soup."], ["He still checks the clip", "First seconds, by eye. You still read the draft."], ["Shorts are the ad", "Comment AI, join the group. Not a lesson."], ["Your eight is one", "The incident draft. The dashboard only shows that file."]], "Camofox": [["A browser for a program", "No window. The agent asks. The page comes back as text."], ["Camoufox is the engine", "A Firefox fork. Camofox is the API around it."], ["The README says stealth", "Built so a bot check is less likely to see a script. That is the product."], ["Sessions and a proxy", "Cookies can stick. Traffic can leave through a proxy. That is a description, not a setup."], ["A transcript add-on", "yt-dlp is named for YouTube text. A public transcript does not need this browser."], ["Docs sit on port 9377", "After it runs. Not a reason to run it."], ["The reel packaged it as a service", "Browse-the-web item in a six-repo carousel."], ["Random forks", "The repo warns about crypto-scam copies. Treat them as untrusted."], ["Not the report loop", "A note file does not go through a third-party browser."], ["Leave it", "Public pages use a normal fetch. A disguised browser is outside this desk."]], "Saved reels": [["Shannon is a stage file", "A tester for an app you own. Each phase writes a file. You copy the stages, not the attack steps."], ["Uncensored reel is a DM", "Comment TRUTH. No product name. Two local files instead: base for clients, loose for internal wording."], ["Mods route cheap work", "Easy sort to Qwen. Decision stays with you. Sessions do not chat."], ["Do not fill a blank", "Champ's rule. No source line, no claim."], ["Stadium is a page", "Three fields later: name, score, note. You approve the file before OBS."], ["Hyperframes makes a card", "Only from an approved draft. Not a new story."], ["Keys stay out of git", "Env file, ignored. No tokens in screenshots."], ["Ruflo was a comment word", "60 agents in the caption. You start with one."], ["Composio is a plug layer", "Not needed for the first report."], ["Two reels had no caption", "Unavailable. Not filled in."]]};
+const names = Object.keys(sources);
+const tabs = document.getElementById('tabs');
+const main = document.getElementById('main');
+function show(name) {
+  tabs.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.n === name));
+  const items = sources[name];
+  main.innerHTML = '<div class="grid">' + items.map((it, i) =>
+    '<article><p class="n">Lesson ' + (i+1) + ' of ' + items.length + '</p><h2>' + it[0] + '</h2><p>' + it[1] + '</p></article>'
+  ).join('') + '</div>';
+}
+names.forEach(n => {
+  const b = document.createElement('button');
+  b.textContent = n;
+  b.dataset.n = n;
+  b.onclick = () => show(n);
+  tabs.appendChild(b);
 });
+show(names[0]);
 </script>
 </body>
 </html>
